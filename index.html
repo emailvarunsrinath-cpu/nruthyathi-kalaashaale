@@ -1,221 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Nruthyathi Kalaashaale (R.)</title>
-
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Open+Sans&display=swap" rel="stylesheet">
-
-  <style>
-    * {
-      box-sizing: border-box;
-      scroll-behavior: smooth;
-    }
-
-    body {
-      margin: 0;
-      font-family: 'Open Sans', sans-serif;
-      background-color: #fff9f5;
-      color: #2c2c2c;
-    }
-
-    header {
-      background-color: #7b1fa2;
-      color: white;
-      text-align: center;
-      padding: 2rem 1rem;
-    }
-
-    header h1 {
-      margin: 0;
-      font-size: 2.8rem;
-      font-family: 'Playfair Display', serif;
-    }
-
-    header p {
-      margin: 0.3rem 0;
-      font-size: 1.2rem;
-    }
-
-    nav {
-      background-color: #4a148c;
-      text-align: center;
-    }
-
-    nav a {
-      display: inline-block;
-      color: white;
-      padding: 1rem;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    nav a:hover {
-      background-color: #6a1b9a;
-    }
-
-    section {
-      padding: 3rem 1.5rem;
-      max-width: 1000px;
-      margin: auto;
-    }
-
-    section h2 {
-      color: #7b1fa2;
-      font-size: 2rem;
-      margin-bottom: 1rem;
-    }
-
-    .about, .events, .gallery, .videos, .contact {
-      line-height: 1.7;
-    }
-
-    .event-list {
-      list-style-type: none;
-      padding: 0;
-    }
-
-    .event-list li {
-      background: #f9f0ff;
-      margin: 0.5rem 0;
-      padding: 1rem;
-      border-left: 5px solid #7b1fa2;
-      border-radius: 5px;
-    }
-
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1rem;
-    }
-
-    .gallery-grid img {
-      width: 100%;
-      border-radius: 8px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-    }
-
-    .videos iframe {
-      width: 100%;
-      max-width: 600px;
-      height: 340px;
-      border-radius: 8px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-      margin: auto;
-      display: block;
-    }
-
-    .contact {
-      background-color: #f3e5f5;
-      border-radius: 10px;
-      padding: 2rem;
-    }
-
-    footer {
-      background-color: #4a148c;
-      color: #fff;
-      text-align: center;
-      padding: 1rem;
-      font-size: 0.9rem;
-    }
-
-    @media screen and (max-width: 600px) {
-      header h1 {
-        font-size: 2rem;
-      }
-
-      nav a {
-        display: block;
-        padding: 0.8rem;
-      }
-
-      section {
-        padding: 2rem 1rem;
-      }
-
-      .videos iframe {
-        height: 220px;
-      }
-    }
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nruthyathi Kalaashaale</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
+<body class="bg-[#2a0a0a] text-white font-sans">
 
-  <header>
-    <h1>Nruthyathi Kalaashaale (R.)</h1>
-    <p>Bharathanatyam Dance Institute & Art Center</p>
-    <p>Run by Smt. Anusha Varun</p>
-  </header>
-
-  <!-- Navigation -->
-  <nav>
-    <a href="#about">About</a>
-    <a href="#events">Events</a>
-    <a href="#gallery">Gallery</a>
-    <a href="#videos">Videos</a>
-    <a href="#contact">Contact</a>
+  <!-- Navbar -->
+  <nav class="bg-[#400000] shadow-lg fixed w-full top-0 z-50">
+    <div class="container mx-auto flex justify-between items-center py-4 px-6">
+      <h1 class="text-2xl font-bold text-yellow-300">Nruthyathi Kalaashaale</h1>
+      <div class="space-x-6 hidden md:flex">
+        <a href="#about" class="hover:text-yellow-300">About</a>
+        <a href="#events" class="hover:text-yellow-300">Events</a>
+        <a href="#gallery" class="hover:text-yellow-300">Gallery</a>
+        <a href="#videos" class="hover:text-yellow-300">Videos</a>
+        <a href="#contact" class="hover:text-yellow-300">Contact</a>
+      </div>
+    </div>
   </nav>
 
-  <!-- About -->
-  <section id="about" class="about">
-    <h2>About Us</h2>
-    <p>
-      NRUTHYATHI KALAASHAALE stands as a beacon for the preservation and propagation of Indian arts, culture, and heritage. Founded by the Bharatanatyam Artist, Smt. Anusha Varun, the institution represents an unwavering dedication to fostering a deep appreciation for Indian classical arts. Since its inception in 2008, NRUTHYATHI KALAASHAALE has been instrumental in imparting the timeless art of Bharatanatyam to over 500 students in Mysore, with an additional 20 students from across the globe benefiting from its teachings.
-    </p>
-    <p>
-      Under the meticulous guidance of Guru Smt. Anusha Varun, NRUTHYATHI KALAASHAALE has witnessed remarkable milestones. Over 150 students have successfully passed Junior exams, while more than 80 students have excelled in Senior exams. Notably, 10 students have achieved Vidwath level certification hosted by Karnataka Secondary Education Examination Board, a testament to the institution's commitment to excellence in classical dance education.
-    </p>
-    <p>
-      The institution has organized five annual festivals, named Samaagama. Students have showcased talents at events like Sutur Jathre Mahothsav, Kalabhivardhana, Nruthyopasana, and more. One highlight: the acclaimed Bharatanatyam Rangapravesam of Aisiri D in Dec 2023, and the upcoming mother-daughter trio Rangapravesam in Aug 2024.
-    </p>
-    <p>
-      NRUTHYATHI KALAASHAALE continues to be a legacy of passion, culture, and classical excellence.
-    </p>
-  </section>
-
-  <!-- Events -->
-  <section id="events" class="events">
-    <h2>Upcoming Events</h2>
-    <ul class="event-list">
-      <li><strong>Annual Dance Festival</strong> – March 2025 at Mysuru Town Hall</li>
-      <li><strong>Workshop on Abhinaya</strong> – April 2025 conducted by Smt. Anusha Varun</li>
-      <li><strong>Student Arangetram Series</strong> – June 2025</li>
-    </ul>
-  </section>
-
-  <!-- Gallery -->
-  <section id="gallery" class="gallery">
-    <h2>Photo Gallery</h2>
-    <div class="gallery-grid">
-      <img src="images/photo1.jpg" alt="Performance 1">
-      <img src="images/photo2.jpg" alt="Performance 2">
-      <img src="images/photo3.jpg" alt="Performance 3">
-      <img src="images/photo4.jpg" alt="Performance 4">
+  <!-- Hero Section -->
+  <section class="h-screen bg-cover bg-center flex items-center justify-center text-center" 
+    style="background-image: url('images/hero.jpg');">
+    <div class="bg-black bg-opacity-60 p-10 rounded-xl">
+      <h2 class="text-5xl md:text-6xl font-bold text-yellow-300">Welcome to Nruthyathi Kalaashaale</h2>
+      <p class="mt-4 text-xl md:text-2xl">A Temple of Bharatanatyam</p>
+      <a href="#about" class="mt-6 inline-block px-6 py-3 bg-yellow-400 text-black font-semibold rounded-full hover:bg-yellow-500 transition">Explore More</a>
     </div>
   </section>
 
-  <!-- Videos -->
-  <section id="videos" class="videos">
-    <h2>Our Featured Performance</h2>
-    <iframe src="https://www.youtube.com/embed/549aJucy7sM" frameborder="0" allowfullscreen></iframe>
+  <!-- About Section -->
+  <section id="about" class="py-24 px-6 text-center max-w-4xl mx-auto">
+    <h2 class="text-4xl font-bold text-yellow-300 mb-8">About Us</h2>
+    <p class="text-lg md:text-xl leading-relaxed text-gray-200 mb-4">
+      Nruthyathi Kalaashaale, founded by <b>Smt. Anusha Varun</b>, is dedicated to preserving and promoting the rich heritage of Bharatanatyam.
+    </p>
+    <p class="text-lg md:text-xl leading-relaxed text-gray-200 mb-4">
+      Over the years, the institution has trained hundreds of students and organized multiple annual festivals, Samaagama, showcasing classical dance excellence.
+    </p>
   </section>
 
-  <!-- Contact -->
-  <section id="contact" class="contact">
-    <h2>Contact Us</h2>
-    <p><strong>Address:</strong><br>
-      1253, 'Srilakshmi', 4th Main, 2nd Cross,<br>
-      Vivekanandanagar, Mysuru - 570023
-    </p>
-    <p><strong>Phone:</strong> +91-7760134034</p>
-    <p><strong>Email:</strong> info@nruthyathikalaashaale.org</p>
+  <!-- Events Section -->
+  <section id="events" class="py-24 bg-[#400000] px-6 text-center">
+    <h2 class="text-4xl font-bold text-yellow-300 mb-12">Upcoming Events</h2>
+    <div class="bg-[#2a0a0a] p-6 md:p-12 rounded-xl shadow-lg max-w-3xl mx-auto text-left">
+      <h3 class="text-2xl font-semibold text-yellow-200">SAMAAGAMA 2025</h3>
+      <p class="mt-2">📅 <b>August 30th & 31st</b></p>
+      <p>📍 <b>Ganabharathi Ramagovinda Kalavedike, Mysuru</b></p>
+      <ul class="list-disc list-inside mt-4 space-y-2 text-gray-200">
+        <li><b>Day 1:</b> Bharathanatyam performances by disciples of <b>Smt. Anusha Varun</b>.</li>
+        <li><b>Day 2:</b> Special production of Kala Sandesha Prathishtana led by <b>Guru Sri Sandesh Bhargav</b>.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Gallery Section -->
+  <section id="gallery" class="py-24 px-6 text-center">
+    <h2 class="text-4xl font-bold text-yellow-300 mb-12">Photo Gallery</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+      <img src="images/1.jpg" alt="Dance 1" class="rounded-xl shadow-lg hover:scale-105 transition-transform">
+      <img src="images/2.jpg" alt="Dance 2" class="rounded-xl shadow-lg hover:scale-105 transition-transform">
+      <img src="images/3.jpg" alt="Dance 3" class="rounded-xl shadow-lg hover:scale-105 transition-transform">
+      <img src="images/4.jpg" alt="Dance 4" class="rounded-xl shadow-lg hover:scale-105 transition-transform">
+      <img src="images/5.jpg" alt="Dance 5" class="rounded-xl shadow-lg hover:scale-105 transition-transform">
+      <img src="images/6.jpg" alt="Dance 6" class="rounded-xl shadow-lg hover:scale-105 transition-transform">
+    </div>
+  </section>
+
+  <!-- Videos Section -->
+  <section id="videos" class="py-24 px-6 text-center bg-[#400000]">
+    <h2 class="text-4xl font-bold text-yellow-300 mb-12">Videos</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+      <iframe class="w-full h-72 md:h-96 rounded-xl shadow-lg" src="https://www.youtube.com/embed/6nFB9R7YWEI" frameborder="0" allowfullscreen></iframe>
+      <iframe class="w-full h-72 md:h-96 rounded-xl shadow-lg" src="https://www.youtube.com/embed/lFL5n31P99k" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-24 px-6 text-center">
+    <h2 class="text-4xl font-bold text-yellow-300 mb-8">Contact Us</h2>
+    <p class="text-gray-200 mb-2"><strong>Address:</strong> 1253, 'Srilakshmi', 4th Main, 2nd Cross, Vivekanandanagar, Mysuru - 570023</p>
+    <p class="text-gray-200 mb-2"><strong>Phone:</strong> +91-7760134034</p>
+    <p class="text-gray-200 mb-2"><strong>Email:</strong> <a href="mailto:nruthyathikalaashaale@gmail.com" class="text-yellow-300 underline">nruthyathikalaashaale@gmail.com</a></p>
   </section>
 
   <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 Nruthyathi Kalaashaale (R.). All Rights Reserved.</p>
+  <footer class="bg-[#400000] py-6 text-center text-gray-300">
+    &copy; 2025 Nruthyathi Kalaashaale. All Rights Reserved.
   </footer>
 
 </body>
