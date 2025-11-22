@@ -1,154 +1,209 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Nruthyathi Kalaashaale ®</title>
+
+  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
+
   <!-- AOS Animations -->
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <!-- Font Awesome for Icons -->
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
+
+  <!-- Font Awesome (CDN) -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+
+  <meta name="description" content="Nruthyathi Kalaashaale — Bharatanatyam institute led by Smt. Anusha Varun. Classes, performances and festivals." />
+  <style>
+    /* small helper so absolute decorative icons do not overflow on small screens */
+    .decorative { pointer-events: none; user-select: none; }
+  </style>
 </head>
 <body class="bg-[#2a0a0a] text-white font-sans overflow-x-hidden">
 
-<!-- Navbar -->
-<nav class="bg-[#400000] shadow-lg fixed w-full top-0 z-50">
-  <div class="container mx-auto flex justify-between items-center py-4 px-6">
-    <h1 class="text-2xl font-bold text-yellow-300">Nruthyathi Kalaashaale</h1>
-    <div class="space-x-6 hidden md:flex">
-      <a href="#about" class="hover:text-yellow-300 transition">About</a>
-      <a href="#events" class="hover:text-yellow-300 transition">Events</a>
-      <a href="#gallery" class="hover:text-yellow-300 transition">Gallery</a>
-      <a href="#videos" class="hover:text-yellow-300 transition">Videos</a>
-      <a href="#contact" class="hover:text-yellow-300 transition">Contact</a>
+  <!-- Navbar -->
+  <nav class="bg-[#400000] shadow-lg fixed w-full top-0 z-50">
+    <div class="container mx-auto flex justify-between items-center py-4 px-6">
+      <a href="#home" class="text-2xl font-bold text-yellow-300">Nruthyathi Kalaashaale</a>
+
+      <!-- Mobile toggle -->
+      <button id="menuBtn" class="md:hidden text-yellow-300" aria-label="Toggle menu">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+
+      <div id="navLinks" class="space-x-6 hidden md:flex">
+        <a href="#about" class="hover:text-yellow-300 transition">About</a>
+        <a href="#events" class="hover:text-yellow-300 transition">Events</a>
+        <a href="#gallery" class="hover:text-yellow-300 transition">Gallery</a>
+        <a href="#videos" class="hover:text-yellow-300 transition">Videos</a>
+        <a href="#contact" class="hover:text-yellow-300 transition">Contact</a>
+      </div>
     </div>
-  </div>
-</nav>
+  </nav>
 
-<!-- Hero Section -->
-<section class="h-screen relative flex items-center justify-center text-center bg-cover bg-center" 
-  style="background-image: url('images/1.jpg');">
-  <div class="absolute inset-0 bg-black bg-opacity-60"></div>
-  <div class="relative z-10 p-8 md:p-16 rounded-xl" data-aos="fade-up" data-aos-duration="1500">
-    <h2 class="text-5xl md:text-6xl font-bold text-yellow-300 drop-shadow-lg">Nruthyathi Kalaashaale</h2>
-    <p class="mt-4 text-xl md:text-2xl text-gray-200 drop-shadow">A Temple of Bharatanatyam</p>
-    <a href="#about" class="mt-6 inline-block px-6 py-3 bg-yellow-400 text-black font-semibold rounded-full hover:bg-yellow-500 transition shadow-lg">Explore More</a>
-  </div>
-</section>
+  <!-- Hero Section -->
+  <main id="home" class="pt-16">
+    <section
+      id="hero"
+      class="h-screen relative flex items-center justify-center text-center bg-cover bg-center"
+      style="background-image: url('images/1.jpg');"
+      data-aos="fade-up"
+      data-aos-duration="1400"
+    >
+      <!-- overlay -->
+      <div class="absolute inset-0 bg-black bg-opacity-60"></div>
 
-<!-- About Section -->
-<section id="about" class="py-24 px-6 text-center max-w-5xl mx-auto" data-aos="fade-up" data-aos-duration="1500">
-  <h2 class="text-4xl font-bold text-yellow-300 mb-8">About Us</h2>
-  <p class="text-lg md:text-xl leading-relaxed text-gray-200 mb-4">
-    Nruthyathi Kalaashaale, founded by <b>Smt. Anusha Varun</b>, is dedicated to preserving and promoting the rich heritage of Bharatanatyam.
-  </p>
-  <p class="text-lg md:text-xl leading-relaxed text-gray-200 mb-4">
-    Over the years, the institution has trained hundreds of students and organized multiple annual festivals, Samaagama, showcasing classical dance excellence.
-  </p>
-  <div class="flex justify-center mt-8 space-x-8">
-    <div class="flex flex-col items-center">
-      <i class="fas fa-users text-yellow-400 text-4xl mb-2"></i>
-      <p class="text-gray-200">500+ Students</p>
-    </div>
-    <div class="flex flex-col items-center">
-      <i class="fas fa-trophy text-yellow-400 text-4xl mb-2"></i>
-      <p class="text-gray-200">150+ Passed Exams</p>
-    </div>
-    <div class="flex flex-col items-center">
-      <i class="fas fa-calendar-alt text-yellow-400 text-4xl mb-2"></i>
-      <p class="text-gray-200">Annual Festivals</p>
-    </div>
-  </div>
-</section>
+      <div class="relative z-10 p-8 md:p-16 rounded-xl max-w-4xl">
+        <h1 class="text-4xl md:text-6xl font-bold text-yellow-300 drop-shadow-lg">Nruthyathi Kalaashaale</h1>
+        <p class="mt-4 text-lg md:text-2xl text-gray-200 drop-shadow">A Temple of Bharatanatyam</p>
+        <a href="#about" class="mt-6 inline-block px-6 py-3 bg-yellow-400 text-black font-semibold rounded-full hover:bg-yellow-500 transition shadow-lg">Explore More</a>
+      </div>
+    </section>
 
-<!-- Events Section -->
-<section id="events" class="py-24 bg-[#400000] px-6 text-center" data-aos="fade-up" data-aos-duration="1500">
-  <h2 class="text-4xl font-bold text-yellow-300 mb-12">Upcoming Events</h2>
-  <div class="bg-[#2a0a0a] p-8 md:p-12 rounded-xl shadow-lg max-w-4xl mx-auto text-left">
-    <h3 class="text-2xl font-semibold text-yellow-200 mb-2">SAMAAGAMA 2025</h3>
-    <p class="mb-2"><i class="fas fa-calendar-alt text-yellow-400 mr-2"></i>August 30th & 31st</p>
-    <p class="mb-4"><i class="fas fa-map-marker-alt text-yellow-400 mr-2"></i>Ganabharathi Ramagovinda Kalavedike, Mysuru</p>
-    <ul class="list-disc list-inside space-y-2 text-gray-200">
-      <li><b>Day 1:</b> Bharathanatyam performances by disciples of <b>Smt. Anusha Varun</b>.</li>
-      <li><b>Day 2:</b> Special production of Kala Sandesha Prathishtana led by <b>Guru Sri Sandesh Bhargav</b>.</li>
-    </ul>
-  </div>
-</section>
+    <!-- About Section -->
+    <section id="about" class="py-24 px-6 text-center max-w-5xl mx-auto" data-aos="fade-up" data-aos-duration="1200">
+      <h2 class="text-4xl font-bold text-yellow-300 mb-8">About Us</h2>
+      <p class="text-lg md:text-xl leading-relaxed text-gray-200 mb-4">
+        Nruthyathi Kalaashaale, founded by <strong>Smt. Anusha Varun</strong>, is dedicated to preserving and promoting the rich heritage of Bharatanatyam.
+      </p>
+      <p class="text-lg md:text-xl leading-relaxed text-gray-200 mb-4">
+        Over the years, the institution has trained hundreds of students and organized multiple annual festivals, Samaagama, showcasing classical dance excellence.
+      </p>
 
-<!-- Gallery Section -->
-<section id="gallery" class="py-24 px-6 text-center" data-aos="fade-up" data-aos-duration="1500">
-  <h2 class="text-4xl font-bold text-yellow-300 mb-12">Photo Gallery</h2>
-  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-    <img src="images/1.jpg" alt="Dance 1" class="rounded-xl shadow-lg hover:scale-105 transition-transform">
-    <img src="images/2.jpg" alt="Dance 2" class="rounded-xl shadow-lg hover:scale-105 transition-transform">
-    <img src="images/3.jpg" alt="Dance 3" class="rounded-xl shadow-lg hover:scale-105 transition-transform">
-    <img src="images/4.jpg" alt="Dance 4" class="rounded-xl shadow-lg hover:scale-105 transition-transform">
-    <img src="images/5.jpg" alt="Dance 5" class="rounded-xl shadow-lg hover:scale-105 transition-transform">
-    <img src="images/6.jpg" alt="Dance 6" class="rounded-xl shadow-lg hover:scale-105 transition-transform">
-    <img src="images/7.jpg" alt="Dance 7" class="rounded-xl shadow-lg hover:scale-105 transition-transform">
-  </div>
-</section>
+      <div class="flex justify-center mt-8 space-x-8">
+        <div class="flex flex-col items-center">
+          <i class="fas fa-users text-yellow-400 text-4xl mb-2"></i>
+          <p class="text-gray-200">500+ Students</p>
+        </div>
+        <div class="flex flex-col items-center">
+          <i class="fas fa-trophy text-yellow-400 text-4xl mb-2"></i>
+          <p class="text-gray-200">150+ Passed Exams</p>
+        </div>
+        <div class="flex flex-col items-center">
+          <i class="fas fa-calendar-alt text-yellow-400 text-4xl mb-2"></i>
+          <p class="text-gray-200">Annual Festivals</p>
+        </div>
+      </div>
+    </section>
 
-<!-- Videos Section -->
-<section id="videos" class="py-24 px-6 text-center bg-[#400000]" data-aos="fade-up" data-aos-duration="1500">
-  <h2 class="text-4xl font-bold text-yellow-300 mb-12">Videos</h2>
-  
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-    <!-- Video 1 -->
-    <iframe 
-      class="w-full h-72 md:h-96 rounded-xl shadow-lg"
-      src="https://www.youtube.com/embed/549aJucy7sM"
-      title="Samaagama 2025 Video 1"
-      frameborder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      allowfullscreen>
-    </iframe>
-    
-    <!-- Video 2 -->
-    <iframe 
-      class="w-full h-72 md:h-96 rounded-xl shadow-lg"
-      src="https://www.youtube.com/embed/6nFB9R7YWEI"
-      title="Samaagama 2025 Video 2"
-      frameborder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      allowfullscreen>
-    </iframe>
-  </div>
-</section>
+    <!-- Events Section -->
+    <section id="events" class="py-24 bg-[#400000] px-6 text-center" data-aos="fade-up" data-aos-duration="1200">
+      <h2 class="text-4xl font-bold text-yellow-300 mb-12">Upcoming Events</h2>
+      <div class="bg-[#2a0a0a] p-8 md:p-12 rounded-xl shadow-lg max-w-4xl mx-auto text-left">
+        <h3 class="text-2xl font-semibold text-yellow-200 mb-2">SAMAAGAMA 2025</h3>
+        <p class="mb-2"><i class="fas fa-calendar-alt text-yellow-400 mr-2"></i>August 30th &amp; 31st</p>
+        <p class="mb-4"><i class="fas fa-map-marker-alt text-yellow-400 mr-2"></i>Ganabharathi Ramagovinda Kalavedike, Mysuru</p>
+        <ul class="list-disc list-inside space-y-2 text-gray-200">
+          <li><strong>Day 1:</strong> Bharathanatyam performances by disciples of <strong>Smt. Anusha Varun</strong>.</li>
+          <li><strong>Day 2:</strong> Special production of Kala Sandesha Prathishtana led by <strong>Guru Sri Sandesh Bhargav</strong>.</li>
+        </ul>
+      </div>
+    </section>
 
-  <!-- Floating decorative icons -->
-  <div class="absolute top-10 left-10 text-yellow-400 text-5xl opacity-30 animate-bounce">✨</div>
-  <div class="absolute bottom-10 right-16 text-yellow-400 text-4xl opacity-30 animate-spin">🌟</div>
-</section>
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-24 px-6 text-center" data-aos="fade-up" data-aos-duration="1200">
+      <h2 class="text-4xl font-bold text-yellow-300 mb-12">Photo Gallery</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+        <!-- Update these filenames if your repo uses different names -->
+        <img src="images/1.jpg" alt="Dance 1" class="rounded-xl shadow-lg hover:scale-105 transition-transform" onerror="this.style.display='none'">
+        <img src="images/2.jpg" alt="Dance 2" class="rounded-xl shadow-lg hover:scale-105 transition-transform" onerror="this.style.display='none'">
+        <img src="images/3.jpg" alt="Dance 3" class="rounded-xl shadow-lg hover:scale-105 transition-transform" onerror="this.style.display='none'">
+        <img src="images/4.jpg" alt="Dance 4" class="rounded-xl shadow-lg hover:scale-105 transition-transform" onerror="this.style.display='none'">
+        <img src="images/5.jpg" alt="Dance 5" class="rounded-xl shadow-lg hover:scale-105 transition-transform" onerror="this.style.display='none'">
+        <img src="images/6.jpg" alt="Dance 6" class="rounded-xl shadow-lg hover:scale-105 transition-transform" onerror="this.style.display='none'">
+        <img src="images/7.jpg" alt="Dance 7" class="rounded-xl shadow-lg hover:scale-105 transition-transform" onerror="this.style.display='none'">
+      </div>
+    </section>
 
-<!-- Contact Section -->
-<section id="contact" class="py-24 px-6 text-center" data-aos="fade-up" data-aos-duration="1500">
-  <h2 class="text-4xl font-bold text-yellow-300 mb-8">Contact Us</h2>
-  <div class="flex flex-col md:flex-row justify-center gap-12 max-w-4xl mx-auto">
-    <div class="flex flex-col items-center text-gray-200">
-      <i class="fas fa-map-marker-alt text-yellow-400 text-3xl mb-2"></i>
-      <p>1253, 'Srilakshmi', 4th Main, 2nd Cross, Vivekanandanagar, Mysuru - 570023</p>
-    </div>
-    <div class="flex flex-col items-center text-gray-200">
-      <i class="fas fa-phone text-yellow-400 text-3xl mb-2"></i>
-      <p>+91-7760134034</p>
-    </div>
-    <div class="flex flex-col items-center text-gray-200">
-      <i class="fas fa-envelope text-yellow-400 text-3xl mb-2"></i>
-      <p><a href="mailto:nruthyathikalaashaale@gmail.com" class="underline text-yellow-300">nruthyathikalaashaale@gmail.com</a></p>
-    </div>
-  </div>
-</section>
+    <!-- Videos Section -->
+    <section id="videos" class="py-24 px-6 text-center bg-[#400000]" data-aos="fade-up" data-aos-duration="1200">
+      <h2 class="text-4xl font-bold text-yellow-300 mb-12">Videos</h2>
 
-<!-- Footer -->
-<footer class="bg-[#400000] py-6 text-center text-gray-300">
-  &copy; 2025 Nruthyathi Kalaashaale. All Rights Reserved.
-</footer>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+        <iframe 
+          class="w-full h-72 md:h-96 rounded-xl shadow-lg"
+          src="https://www.youtube.com/embed/549aJucy7sM"
+          title="Samaagama 2025 Video 1"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
 
-<script>
-  AOS.init();
-</script>
+        <iframe 
+          class="w-full h-72 md:h-96 rounded-xl shadow-lg"
+          src="https://www.youtube.com/embed/6nFB9R7YWEI"
+          title="Samaagama 2025 Video 2"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+      </div>
+    </section>
+
+    <!-- Decorative icons (non-interactive) -->
+    <div class="decorative fixed top-10 left-4 text-yellow-400 text-4xl opacity-20 hidden sm:block select-none">✨</div>
+    <div class="decorative fixed bottom-10 right-8 text-yellow-400 text-3xl opacity-20 hidden sm:block select-none">🌟</div>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 px-6 text-center" data-aos="fade-up" data-aos-duration="1200">
+      <h2 class="text-4xl font-bold text-yellow-300 mb-8">Contact Us</h2>
+      <div class="flex flex-col md:flex-row justify-center gap-12 max-w-4xl mx-auto">
+        <div class="flex flex-col items-center text-gray-200">
+          <i class="fas fa-map-marker-alt text-yellow-400 text-3xl mb-2"></i>
+          <p>1253, 'Srilakshmi', 4th Main, 2nd Cross, Vivekanandanagar, Mysuru - 570023</p>
+        </div>
+        <div class="flex flex-col items-center text-gray-200">
+          <i class="fas fa-phone text-yellow-400 text-3xl mb-2"></i>
+          <p>+91-7760134034</p>
+        </div>
+        <div class="flex flex-col items-center text-gray-200">
+          <i class="fas fa-envelope text-yellow-400 text-3xl mb-2"></i>
+          <p><a href="mailto:nruthyathikalaashaale@gmail.com" class="underline text-yellow-300">nruthyathikalaashaale@gmail.com</a></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-[#400000] py-6 text-center text-gray-300">
+    &copy; 2025 Nruthyathi Kalaashaale. All Rights Reserved.
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    // Initialize AOS after DOM is ready
+    document.addEventListener('DOMContentLoaded', function () {
+      if (window.AOS) AOS.init({ once: true });
+    });
+
+    // Mobile nav toggle
+    (function () {
+      const btn = document.getElementById('menuBtn');
+      const nav = document.getElementById('navLinks');
+      btn?.addEventListener('click', function () {
+        if (!nav) return;
+        nav.classList.toggle('hidden');
+        nav.classList.toggle('flex');
+        nav.classList.toggle('flex-col');
+        nav.classList.toggle('md:flex');
+      });
+    })();
+
+    // If hero image fails to load on the page, use a fallback background
+    (function () {
+      const hero = document.getElementById('hero');
+      const imgUrl = 'images/1.jpg';
+      const tester = new Image();
+      tester.onload = function () { /* image exists */ };
+      tester.onerror = function () {
+        if (hero) {
+          hero.style.backgroundImage = 'linear-gradient(180deg, #3a0f0f, #170404)';
+        }
+      };
+      tester.src = imgUrl;
+    })();
+  </script>
 </body>
 </html>
