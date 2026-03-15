@@ -16,197 +16,215 @@
     html { scroll-behavior: smooth; }
     body { background-color: #faf9f6; color: #333; }
 
-    /* Slideshow Styles */
-    .slideshow-container {
+    /* Fix for content visibility */
+    section { position: relative; width: 100%; }
+
+    /* Automatic Slideshow Styles */
+    .slideshow-wrapper {
       position: relative;
+      width: 100%;
+      max-width: 900px;
+      margin: 0 auto;
+      border-radius: 1.5rem;
       overflow: hidden;
-      border-radius: 1rem;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      aspect-ratio: 16/9;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+      background: #eee;
     }
-    .slide { display: none; width: 100%; aspect-ratio: 16/9; object-fit: cover; }
-    .fade { animation: fadeAnim 1.5s; }
-    @keyframes fadeAnim { from {opacity: .4} to {opacity: 1} }
-
-    .glass-card {
-      background: rgba(255, 255, 255, 0.7);
-      backdrop-filter: blur(8px);
-      border: 1px solid rgba(255, 255, 255, 0.4);
+    .slide-img {
+      display: none;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
+    .fade { animation: fadeEffect 1.5s ease-in-out; }
+    @keyframes fadeEffect { from {opacity: 0.4} to {opacity: 1} }
 
-    .nav-link:hover { color: #c34141; transform: translateY(-1px); }
+    .glass-nav {
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(10px);
+    }
   </style>
 </head>
 <body class="font-sans overflow-x-hidden">
 
-  <nav class="bg-white/90 backdrop-blur-md shadow-sm fixed w-full top-0 z-[100] border-b border-red-50">
+  <nav class="glass-nav shadow-sm fixed w-full top-0 z-[1000] border-b border-red-50">
     <div class="container mx-auto flex justify-between items-center py-4 px-6">
-      <a href="#home" class="text-2xl font-bold text-red-800 tracking-tight">
+      <a href="#home" class="text-2xl font-bold text-red-800">
         Nruthyathi <span class="text-yellow-600">Kalaashaale</span>
       </a>
 
-      <button id="menuBtn" class="md:hidden text-red-800" aria-label="Toggle menu">
-        <i class="fa-solid fa-bars text-xl"></i>
+      <button id="menuBtn" class="md:hidden text-red-800 p-2">
+        <i class="fa-solid fa-bars text-2xl"></i>
       </button>
 
       <div id="navLinks" class="hidden md:flex space-x-8 font-medium text-gray-700">
-        <a href="#about" class="nav-link transition">About</a>
-        <a href="#rangavidhi" class="nav-link transition">Rangavidhipraveshika</a>
-        <a href="#events" class="nav-link transition">Events</a>
-        <a href="#gallery" class="nav-link transition">Gallery</a>
-        <a href="#contact" class="nav-link transition">Contact</a>
+        <a href="#about" class="hover:text-red-700 transition-colors">About</a>
+        <a href="#rangavidhi" class="hover:text-red-700 transition-colors">Rangavidhipraveshika</a>
+        <a href="#events" class="hover:text-red-700 transition-colors">Events</a>
+        <a href="#gallery" class="hover:text-red-700 transition-colors">Gallery</a>
+        <a href="#contact" class="hover:text-red-700 transition-colors">Contact</a>
       </div>
     </div>
   </nav>
 
-  <main id="home" class="pt-16">
-    <section class="h-[80vh] relative flex items-center justify-center text-center bg-cover bg-center" style="background-image: url('images/1.jpg');">
-      <div class="absolute inset-0 bg-black/30"></div>
-      <div class="relative z-10 p-8 glass-card rounded-3xl mx-4" data-aos="zoom-in">
-        <h1 class="text-4xl md:text-6xl font-bold text-red-900 mb-2">Nruthyathi Kalaashaale</h1>
-        <p class="text-lg md:text-xl text-red-800 italic">Tradition, Devotion, Excellence</p>
-      </div>
-    </section>
+  <section id="home" class="h-screen flex items-center justify-center bg-cover bg-center pt-16" style="background-image: url('images/1.jpg');">
+    <div class="absolute inset-0 bg-black/40"></div>
+    <div class="relative z-10 text-center p-10 bg-white/70 backdrop-blur-md rounded-3xl mx-4" data-aos="zoom-in">
+      <h1 class="text-4xl md:text-7xl font-bold text-red-900 mb-2">Nruthyathi Kalaashaale</h1>
+      <p class="text-xl md:text-2xl text-red-800 italic">Tradition, Devotion, Excellence</p>
+    </div>
+  </section>
 
-    <section id="about" class="py-20 px-6">
-      <div class="container mx-auto max-w-5xl">
-        <div class="grid md:grid-cols-2 gap-12 items-center">
-          <div class="space-y-6" data-aos="fade-right">
-            <h2 class="text-4xl font-bold text-red-900">About Us</h2>
-            <div class="h-1 w-20 bg-yellow-600"></div>
-            <p class="text-gray-700 text-lg leading-relaxed">
-              Founded by <strong>Smt. Anusha Varun</strong>, our institution is a sanctuary for Bharatanatyam. We nurture around 500 students, guiding them through the spiritual and technical depths of classical dance.
-            </p>
-          </div>
-          <div class="relative" data-aos="fade-left">
-            <img src="images/RAW03170.jpg" alt="About Nruthyathi" class="rounded-2xl shadow-2xl w-full object-cover aspect-square">
-          </div>
+  <section id="about" class="py-24 px-6 bg-white">
+    <div class="container mx-auto max-w-6xl">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div data-aos="fade-right">
+          <h2 class="text-4xl font-bold text-red-900 mb-4">About Us</h2>
+          <div class="h-1.5 w-24 bg-yellow-600 mb-8"></div>
+          <p class="text-gray-700 text-lg leading-relaxed mb-6">
+            Founded by <strong>Smt. Anusha Varun</strong>, Nruthyathi Kalaashaale is a dedicated center for Bharatanatyam. We provide a nurturing environment for over <strong>500 students</strong> to master the technical and expressive elements of this sacred art form.
+          </p>
+          <p class="text-gray-700 text-lg leading-relaxed">
+            Our institution focuses on the <strong>Vasuadhara style</strong>, ensuring that every disciple graduates with a deep understanding of rhythm, grace, and theatrical presence.
+          </p>
+        </div>
+        <div class="relative" data-aos="fade-left">
+          <img src="images/RAW03170.jpg" alt="Nruthyathi Performance" class="rounded-3xl shadow-2xl w-full object-cover">
+          <div class="absolute -bottom-6 -right-6 w-32 h-32 bg-yellow-100/50 -z-10 rounded-full"></div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section id="rangavidhi" class="py-20 bg-[#f4f1ea]/50 px-6">
-      <div class="container mx-auto">
-        <h2 class="text-4xl font-bold text-red-900 text-center mb-12">Rangavidhipraveshika</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div class="bg-white rounded-3xl shadow-lg overflow-hidden">
-            <iframe class="w-full aspect-video" src="https://www.youtube.com/embed/lFL5n31P99k" frameborder="0" allowfullscreen></iframe>
-            <div class="p-6 text-center font-bold text-red-800">Kum. Aisiri D</div>
-          </div>
-          <div class="bg-white rounded-3xl shadow-lg overflow-hidden">
-            <iframe class="w-full aspect-video" src="https://www.youtube.com/embed/GIQfQzpwkfk" frameborder="0" allowfullscreen></iframe>
-            <div class="p-6 text-center font-bold text-red-800">Mother & Daughter Trio</div>
-          </div>
-          <div class="bg-white rounded-3xl shadow-lg overflow-hidden">
-            <iframe class="w-full aspect-video" src="https://www.youtube.com/embed/BASxn-P7HO8" frameborder="0" allowfullscreen></iframe>
-            <div class="p-6 text-center font-bold text-red-800">Kum. Harshini Iyer</div>
-          </div>
+  <section id="rangavidhi" class="py-24 bg-[#f4f1ea]/50 px-6">
+    <div class="container mx-auto">
+      <h2 class="text-4xl font-bold text-red-900 text-center mb-16">Rangavidhipraveshika</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-white rounded-3xl shadow-xl overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+          <iframe class="w-full aspect-video" src="https://www.youtube.com/embed/lFL5n31P99k" frameborder="0" allowfullscreen></iframe>
+          <div class="p-6 text-center font-bold text-red-800 uppercase tracking-wide">Kum. Aisiri D</div>
+        </div>
+        <div class="bg-white rounded-3xl shadow-xl overflow-hidden" data-aos="fade-up" data-aos-delay="200">
+          <iframe class="w-full aspect-video" src="https://www.youtube.com/embed/GIQfQzpwkfk" frameborder="0" allowfullscreen></iframe>
+          <div class="p-6 text-center font-bold text-red-800 uppercase tracking-wide">Mother & Daughter Trio</div>
+        </div>
+        <div class="bg-white rounded-3xl shadow-xl overflow-hidden" data-aos="fade-up" data-aos-delay="300">
+          <iframe class="w-full aspect-video" src="https://www.youtube.com/embed/BASxn-P7HO8" frameborder="0" allowfullscreen></iframe>
+          <div class="p-6 text-center font-bold text-red-800 uppercase tracking-wide">Kum. Harshini Iyer</div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section id="gallery" class="py-20 px-6">
-      <div class="container mx-auto max-w-4xl">
-        <h2 class="text-4xl font-bold text-red-900 text-center mb-12">Moments in Motion</h2>
-        <div class="slideshow-container">
-          <img class="slide fade" src="images/1.jpg">
-          <img class="slide fade" src="images/2.jpg">
-          <img class="slide fade" src="images/3.jpg">
-          <img class="slide fade" src="images/4.jpg">
-          <img class="slide fade" src="images/5.jpg">
-          <img class="slide fade" src="images/RAW03170.jpg">
-        </div>
-        <p class="text-center mt-4 text-gray-500 italic">Our Journey in Pictures</p>
+  <section id="gallery" class="py-24 px-6 bg-white">
+    <div class="container mx-auto text-center">
+      <h2 class="text-4xl font-bold text-red-900 mb-12">Photo Gallery</h2>
+      <div class="slideshow-wrapper">
+        <img class="slide-img fade" src="images/1.jpg">
+        <img class="slide-img fade" src="images/2.jpg">
+        <img class="slide-img fade" src="images/3.jpg">
+        <img class="slide-img fade" src="images/4.jpg">
+        <img class="slide-img fade" src="images/5.jpg">
+        <img class="slide-img fade" src="images/RAW03170.jpg">
       </div>
-    </section>
+      <p class="mt-6 text-gray-500 italic">Capturing divine moments through the lens.</p>
+    </div>
+  </section>
 
-    <section id="events" class="py-20 px-6 bg-red-900 text-white">
-      <div class="container mx-auto max-w-3xl text-center">
-        <h2 class="text-4xl font-bold text-yellow-400 mb-10">Upcoming Events 2026</h2>
-        <div class="space-y-6">
-          <div class="bg-white/10 p-6 rounded-2xl border border-white/20">
-            <h3 class="text-2xl font-bold text-yellow-200">Rangavidhipraveshika</h3>
-            <p>Senior Disciple of Guru Smt. Anusha Varun</p>
-          </div>
-          <div class="bg-white/10 p-6 rounded-2xl border border-white/20">
-            <h3 class="text-2xl font-bold text-yellow-200">SAMAAGAMA 2026</h3>
-            <p>Annual Celebration of Nruthyathi Kalaashaale</p>
-          </div>
+  <section id="events" class="py-24 px-6 bg-red-900 text-white">
+    <div class="container mx-auto max-w-4xl">
+      <h2 class="text-4xl font-bold text-yellow-400 mb-12 text-center">Upcoming Events 2026</h2>
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="p-8 bg-white/10 rounded-3xl border border-white/20">
+          <h3 class="text-2xl font-bold text-yellow-200 mb-2">Rangavidhipraveshika</h3>
+          <p>Senior Disciple of Guru Smt. Anusha Varun</p>
         </div>
-      </div>
-    </section>
-
-    <section id="contact" class="py-20 px-6">
-      <div class="container mx-auto max-w-5xl">
-        <h2 class="text-4xl font-bold text-red-900 text-center mb-12">Visit Us</h2>
-        <div class="grid md:grid-cols-2 gap-10">
-          <div class="space-y-6">
-            <div class="flex items-center gap-4">
-              <i class="fas fa-map-marker-alt text-red-700 text-2xl"></i>
-              <p>Vivekanandanagar, Mysuru - 570023</p>
-            </div>
-            <div class="flex items-center gap-4">
-              <i class="fas fa-phone text-red-700 text-2xl"></i>
-              <p>+91-7760134034</p>
-            </div>
-            <div class="mt-6">
-              <a href="https://share.google/B7Xcmw5pCEoGXanf1" target="_blank" class="inline-block bg-red-800 text-white px-6 py-3 rounded-full hover:bg-red-700 transition">
-                <i class="fas fa-directions mr-2"></i> Get Directions on Google Maps
-              </a>
-            </div>
-          </div>
-          <div class="rounded-2xl overflow-hidden shadow-lg h-64 bg-gray-200">
-             <div class="w-full h-full flex items-center justify-center text-gray-400">
-               <i class="fas fa-map-marked-alt text-5xl"></i>
-             </div>
-          </div>
+        <div class="p-8 bg-white/10 rounded-3xl border border-white/20">
+          <h3 class="text-2xl font-bold text-yellow-200 mb-2">SAMAAGAMA 2026</h3>
+          <p>Annual Celebration of Nruthyathi Kalaashaale</p>
         </div>
       </div>
-    </section>
-  </main>
+    </div>
+  </section>
 
-  <footer class="py-10 text-center border-t border-gray-100 text-gray-400 text-sm">
-    &copy; 2026 Nruthyathi Kalaashaale. All Rights Reserved.
+  <section id="contact" class="py-24 px-6 bg-white">
+    <div class="container mx-auto max-w-5xl">
+      <h2 class="text-4xl font-bold text-red-900 text-center mb-16">Contact Us</h2>
+      <div class="grid md:grid-cols-2 gap-16 items-center">
+        <div class="space-y-8">
+          <div class="flex items-center gap-6">
+            <div class="bg-red-100 p-4 rounded-full text-red-800"><i class="fas fa-map-marker-alt text-2xl"></i></div>
+            <p class="text-lg">1253, Vivekanandanagar, Mysuru - 570023</p>
+          </div>
+          <div class="flex items-center gap-6">
+            <div class="bg-red-100 p-4 rounded-full text-red-800"><i class="fas fa-phone-alt text-2xl"></i></div>
+            <p class="text-lg font-bold">+91-7760134034</p>
+          </div>
+          <a href="https://share.google/B7Xcmw5pCEoGXanf1" target="_blank" class="inline-block px-10 py-4 bg-red-800 text-white font-bold rounded-full hover:bg-red-700 transition-all shadow-xl">
+            <i class="fas fa-location-arrow mr-2"></i> Open Google Maps
+          </a>
+        </div>
+        <div class="h-80 bg-gray-100 rounded-3xl overflow-hidden flex items-center justify-center border border-gray-200">
+           <i class="fas fa-map-marked-alt text-gray-300 text-8xl"></i>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="py-12 text-center bg-gray-50 border-t border-gray-100 text-gray-400">
+    <p>&copy; 2026 Nruthyathi Kalaashaale. All Rights Reserved.</p>
   </footer>
 
   <script>
-    // AOS Init
-    AOS.init({ once: true });
+    // 1. AOS Initialization
+    AOS.init({ once: true, duration: 1000 });
 
-    // Navbar Toggle
+    // 2. Navigation Fix: Mobile Toggle & Auto-Close
     const menuBtn = document.getElementById('menuBtn');
     const navLinks = document.getElementById('navLinks');
-    menuBtn.addEventListener('click', () => {
+    
+    menuBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
       navLinks.classList.toggle('hidden');
+      navLinks.classList.toggle('flex');
       navLinks.classList.toggle('flex-col');
       navLinks.classList.toggle('absolute');
-      navLinks.classList.toggle('top-16');
-      navLinks.classList.toggle('bg-white');
-      navLinks.classList.toggle('w-full');
+      navLinks.classList.toggle('top-full');
       navLinks.classList.toggle('left-0');
-      navLinks.classList.toggle('p-6');
+      navLinks.classList.toggle('w-full');
+      navLinks.classList.toggle('bg-white');
+      navLinks.classList.toggle('p-8');
+      navLinks.classList.toggle('shadow-2xl');
     });
 
-    // Close menu on click
-    document.querySelectorAll('.nav-link').forEach(link => {
+    // Close mobile menu when a link is clicked
+    document.querySelectorAll('#navLinks a').forEach(link => {
       link.addEventListener('click', () => {
-        if (!navLinks.classList.contains('hidden')) navLinks.classList.add('hidden');
+        if (window.innerWidth < 768) {
+          navLinks.classList.add('hidden');
+          navLinks.classList.remove('flex', 'flex-col', 'absolute', 'shadow-2xl');
+        }
       });
     });
 
-    // Slideshow Logic
-    let slideIndex = 0;
-    showSlides();
-
-    function showSlides() {
-      let slides = document.getElementsByClassName("slide");
+    // 3. Automatic Slideshow Logic
+    let slideIdx = 0;
+    function runSlideshow() {
+      const slides = document.getElementsByClassName("slide-img");
+      if (slides.length === 0) return;
+      
       for (let i = 0; i < slides.length; i++) {
         slides[i].style.display = "none";  
       }
-      slideIndex++;
-      if (slideIndex > slides.length) {slideIndex = 1}    
-      slides[slideIndex-1].style.display = "block";  
-      setTimeout(showSlides, 3500); // Change image every 3.5 seconds
+      slideIdx++;
+      if (slideIdx > slides.length) { slideIdx = 1 }    
+      slides[slideIdx-1].style.display = "block";  
+      setTimeout(runSlideshow, 3500); 
     }
+    
+    // Start slideshow on load
+    window.onload = runSlideshow;
   </script>
 </body>
 </html>
