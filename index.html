@@ -1,13 +1,3 @@
-I have applied the following critical fixes to your code:
-
-1. **Navigation Links:** Fixed the ID anchors and added a "Close on Click" script so the menu automatically collapses after you select a section on mobile.
-2. **Direction Link:** Switched the URL to the `https://maps.app.goo.gl/...` protocol, which is the most reliable way to force a mobile phone to open the Google Maps app instead of the browser.
-3. **Desktop Image Visibility:** Used `object-fit: contain` for the Lightbox and adjusted the `max-height` constraints so that vertical photos are not cut off on wide desktop monitors.
-4. **Text Update:** Changed the button text to **"NAVIGATE TO INSTITUTE"**.
-
-### Final Complete Index Code
-
-```html
 <!doctype html>
 <html lang="en">
 <head>
@@ -25,7 +15,7 @@ I have applied the following critical fixes to your code:
   <style>
     html { scroll-behavior: smooth; }
     
-    /* 🛡️ SECURITY LAYER */
+    /* 🛡️ SECURITY LAYER - DISABLE SELECTION */
     * {
       -webkit-user-select: none;
       -moz-user-select: none;
@@ -34,7 +24,7 @@ I have applied the following critical fixes to your code:
       -webkit-touch-callout: none !important;
     }
 
-    body { background-color: #fdfbf7; color: #332d2d; font-family: 'Plus Jakarta Sans', sans-serif; margin: 0; }
+    body { background-color: #fdfbf7; color: #332d2d; font-family: 'Plus Jakarta Sans', sans-serif; margin: 0; overflow-x: hidden; }
     h1, h2, h3 { font-family: 'Cinzel', serif; letter-spacing: 0.08em; }
 
     /* Hero Parallax */
@@ -60,7 +50,7 @@ I have applied the following critical fixes to your code:
 
     @media (max-width: 768px) { .hero-section::before { background-attachment: scroll; } }
 
-    /* Gallery Container */
+    /* Gallery Visuals */
     .gallery-frame {
       position: relative;
       width: 100%;
@@ -88,58 +78,64 @@ I have applied the following critical fixes to your code:
       background: linear-gradient(135deg, #c5a059 0%, #8e6d13 100%);
       color: white;
       box-shadow: 0 8px 25px rgba(142, 109, 19, 0.3);
+      transition: all 0.3s ease;
     }
+    .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 12px 30px rgba(142, 109, 19, 0.5); }
 
-    /* 📱 LIGHTBOX FIX FOR DESKTOP IMAGE FITTING */
+    /* Lightbox Fixes */
     #lightbox {
       display: none;
       position: fixed;
       z-index: 9999;
       top: 0; left: 0; width: 100%; height: 100%;
-      background: rgba(12, 10, 10, 0.98);
+      background: rgba(10, 8, 8, 0.98);
       flex-direction: column;
       justify-content: center;
       align-items: center;
     }
     #lightbox img { 
       max-width: 90vw; 
-      max-height: 85vh; 
-      object-fit: contain; /* Ensures photo is fully visible without stretching */
-      border: 3px solid #c5a059; 
+      max-height: 80vh; 
+      object-fit: contain; 
+      border: 2px solid rgba(197, 160, 89, 0.4);
+      border-radius: 8px;
     }
 
     .nav-arrow {
-      background: rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.05);
       color: #c5a059;
       width: 50px; height: 50px;
       border-radius: 50%;
       display: flex; align-items: center; justify-content: center;
       cursor: pointer; pointer-events: auto;
+      transition: 0.3s;
     }
+    .nav-arrow:hover { background: rgba(255,255,255,0.15); color: white; }
 
-    /* Mobile Nav Overlay */
+    /* Mobile Menu Overlay */
     #navMenu.show { 
       display: flex !important; 
       flex-direction: column; 
       position: absolute; 
       top: 100%; left: 0; width: 100%; 
-      background: white; padding: 2rem; 
-      box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+      background: white; padding: 2.5rem; 
+      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+      gap: 1.5rem;
     }
   </style>
 </head>
 <body oncontextmenu="return false;">
 
-  <nav class="fixed w-full top-0 z-[5000] bg-white/90 backdrop-blur-xl border-b border-gold/10">
-    <div class="container mx-auto flex justify-between items-center py-4 px-8">
-      <a href="#home" class="text-2xl font-bold text-red-950 tracking-tighter">NRUTHYATHI <span class="text-[#c5a059] font-light">KALAASHAALE</span></a>
+  <nav class="fixed w-full top-0 z-[5000] bg-white/95 backdrop-blur-xl border-b border-gold/10">
+    <div class="container mx-auto flex justify-between items-center py-4 px-6 md:px-12">
+      <a href="#home" class="text-xl md:text-2xl font-bold text-red-950 tracking-tighter">NRUTHYATHI <span class="text-[#c5a059] font-light">KALAASHAALE</span></a>
       
-      <div id="navMenu" class="hidden md:flex space-x-8 text-[11px] font-bold uppercase tracking-widest text-gray-500">
-        <a href="#about" class="hover:text-red-700 transition" onclick="toggleMobileMenu()">About</a>
-        <a href="#rangavidhipraveshika" class="hover:text-red-700 transition" onclick="toggleMobileMenu()">Rangavidhipraveshika</a>
-        <a href="#events" class="hover:text-red-700 transition" onclick="toggleMobileMenu()">Events</a>
-        <a href="#gallery" class="hover:text-red-700 transition" onclick="toggleMobileMenu()">Gallery</a>
-        <a href="#contact" class="hover:text-red-700 transition" onclick="toggleMobileMenu()">Contact</a>
+      <div id="navMenu" class="hidden md:flex space-x-10 text-[11px] font-bold uppercase tracking-[0.2em] text-gray-400">
+        <a href="#about" class="hover:text-red-800 transition" onclick="closeMenu()">About</a>
+        <a href="#rangavidhipraveshika" class="hover:text-red-800 transition" onclick="closeMenu()">Rangavidhipraveshika</a>
+        <a href="#events" class="hover:text-red-800 transition" onclick="closeMenu()">Events</a>
+        <a href="#gallery" class="hover:text-red-800 transition" onclick="closeMenu()">Gallery</a>
+        <a href="#contact" class="hover:text-red-800 transition" onclick="closeMenu()">Contact</a>
       </div>
 
       <button onclick="toggleMobileMenu()" class="md:hidden text-red-900 text-2xl"><i class="fa-solid fa-bars-staggered"></i></button>
@@ -147,54 +143,54 @@ I have applied the following critical fixes to your code:
   </nav>
 
   <section id="home" class="hero-section">
-    <div class="relative z-10 text-center px-6" data-aos="fade-up">
-      <h1 class="text-5xl md:text-8xl font-bold text-white mb-4">Nruthyathi</h1>
+    <div class="relative z-10 text-center px-6" data-aos="fade-up" data-aos-delay="200">
+      <h1 class="text-5xl md:text-8xl font-bold text-white mb-4 drop-shadow-xl">Nruthyathi</h1>
       <p class="text-xl md:text-3xl text-[#c5a059] font-light italic tracking-widest">KALAASHAALE</p>
     </div>
   </section>
 
-  <section id="about" class="py-32 px-6">
+  <section id="about" class="py-24 md:py-32 px-6">
     <div class="container mx-auto max-w-6xl">
       <div class="grid md:grid-cols-2 gap-16 items-center">
         <div data-aos="fade-right">
-          <h2 class="text-4xl font-bold text-red-950 mb-8 uppercase">About Us</h2>
+          <h2 class="text-4xl font-bold text-red-950 mb-8 uppercase tracking-wider">Our Heritage</h2>
           <p class="text-gray-600 text-lg leading-relaxed mb-10 font-light">
-            Founded by <strong>Smt. Anusha Varun</strong>, Nruthyathi Kalaashaale nurtures 500+ students, focusing on technical mastery and spiritual depth.
+            Founded by <strong>Smt. Anusha Varun</strong>, Nruthyathi Kalaashaale is a sanctuary for Bharatanatyam, mentoring over 500 students in the pursuit of artistic and spiritual excellence.
           </p>
           <div class="flex flex-wrap gap-4">
-            <a href="pdfs/Profile of Smt. Anusha Varun.pdf" download class="btn-gold px-8 py-3 rounded-full font-bold flex items-center gap-2 text-xs uppercase tracking-widest shadow-xl transition-all hover:scale-105">
-              <i class="fas fa-file-lines"></i> Guru's Profile
+            <a href="pdfs/Profile of Smt. Anusha Varun.pdf" download class="btn-gold px-10 py-4 rounded-full font-bold text-[10px] uppercase tracking-widest">
+              <i class="fas fa-file-lines mr-2"></i> Guru's Profile
             </a>
-            <a href="#" class="border border-red-900/30 text-red-900 px-8 py-3 rounded-full font-bold text-xs uppercase tracking-widest hover:bg-red-50 transition-all">Institution Profile</a>
+            <a href="#" class="border border-red-900/20 text-red-950 px-10 py-4 rounded-full font-bold text-[10px] uppercase tracking-widest hover:bg-red-50 transition">Institution Profile</a>
           </div>
         </div>
         <div class="relative" data-aos="fade-left">
           <div class="mask-layer"></div>
-          <img src="images/RAW03170.jpg" alt="Dance Performance" class="rounded-[2.5rem] shadow-2xl w-full max-w-sm mx-auto border-4 border-white">
+          <img src="images/RAW03170.jpg" alt="Bharatanatyam" class="rounded-[2.5rem] shadow-2xl w-full max-w-sm mx-auto border-4 border-white">
         </div>
       </div>
     </div>
   </section>
 
-  <section id="events" class="py-32 px-6 bg-[#1a0303] text-white">
-    <div class="container mx-auto text-center">
-      <h2 class="text-4xl font-bold text-[#c5a059] mb-16 uppercase tracking-widest">Upcoming Events 2026</h2>
-      <div class="grid md:grid-cols-2 gap-10 max-w-4xl mx-auto">
-        <div class="p-12 bg-white/5 border border-white/10 rounded-3xl" data-aos="zoom-in">
-          <h3 class="text-xl font-bold text-yellow-100 mb-2">Rangavidhipraveshika</h3>
-          <p class="text-white/50 text-sm italic">Senior Disciple Debut</p>
+  <section id="events" class="py-24 bg-[#1a0303] text-white">
+    <div class="container mx-auto text-center px-6">
+      <h2 class="text-4xl font-bold text-[#c5a059] mb-16 uppercase tracking-widest">Calendar 2026</h2>
+      <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <div class="p-10 border border-white/10 rounded-3xl bg-white/5" data-aos="zoom-in">
+          <h3 class="text-xl font-bold text-yellow-100 mb-2 uppercase">Rangavidhipraveshika</h3>
+          <p class="text-white/40 text-sm italic">Grand Solo Debut Milestone</p>
         </div>
-        <div class="p-12 bg-white/5 border border-white/10 rounded-3xl" data-aos="zoom-in" data-aos-delay="200">
-          <h3 class="text-xl font-bold text-yellow-100 mb-2">Samaagama 2026</h3>
-          <p class="text-white/50 text-sm italic">Annual Celebration</p>
+        <div class="p-10 border border-white/10 rounded-3xl bg-white/5" data-aos="zoom-in" data-aos-delay="200">
+          <h3 class="text-xl font-bold text-yellow-100 mb-2 uppercase">Samaagama 2026</h3>
+          <p class="text-white/40 text-sm italic">Annual Institutional Showcase</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="gallery" class="py-32 px-6">
+  <section id="gallery" class="py-24 px-6">
     <div class="container mx-auto text-center">
-      <h2 class="text-4xl font-bold text-red-950 mb-16 uppercase tracking-widest">Photo Gallery</h2>
+      <h2 class="text-4xl font-bold text-red-950 mb-16 uppercase tracking-widest">Gallery</h2>
       <div class="gallery-frame" onclick="openLightbox()">
         <div class="mask-layer"></div>
         <img class="mySlide active-slide" src="images/1.jpg">
@@ -204,48 +200,48 @@ I have applied the following critical fixes to your code:
         <img class="mySlide" src="images/5.jpg">
         <img class="mySlide" src="images/RAW03170.jpg">
       </div>
-      <p class="mt-8 text-[#c5a059] text-xs uppercase tracking-widest font-bold">Tap to view full screen</p>
+      <p class="mt-8 text-[#c5a059] text-[10px] uppercase tracking-[0.3em] font-bold">Touch to browse images</p>
     </div>
   </section>
 
-  <section id="rangavidhi" class="py-32 px-6 bg-[#f9f7f2]">
+  <section id="rangavidhi" class="py-24 px-6 bg-[#f9f7f2]">
     <div class="container mx-auto">
-      <h2 class="text-4xl font-bold text-red-950 text-center mb-20 uppercase tracking-widest">Milestones</h2>
+      <h2 class="text-3xl font-bold text-red-950 text-center mb-16 uppercase tracking-widest">Performances</h2>
       <div class="grid md:grid-cols-3 gap-8">
-        <div class="bg-white p-4 rounded-3xl shadow-lg" data-aos="fade-up">
+        <div class="bg-white p-3 rounded-3xl shadow-xl" data-aos="fade-up">
           <iframe class="w-full aspect-video rounded-2xl" src="https://www.youtube.com/embed/lFL5n31P99k" frameborder="0" allowfullscreen></iframe>
-          <p class="text-center mt-4 font-bold text-red-900 text-xs">KUM. AISIRI D</p>
+          <p class="text-center mt-4 font-bold text-red-900 text-[10px] tracking-widest uppercase">Kum. Aisiri D</p>
         </div>
-        <div class="bg-white p-4 rounded-3xl shadow-lg" data-aos="fade-up" data-aos-delay="200">
+        <div class="bg-white p-3 rounded-3xl shadow-xl" data-aos="fade-up" data-aos-delay="200">
           <iframe class="w-full aspect-video rounded-2xl" src="https://www.youtube.com/embed/GIQfQzpwkfk" frameborder="0" allowfullscreen></iframe>
-          <p class="text-center mt-4 font-bold text-red-900 text-xs">MOTHER & DAUGHTER TRIO</p>
+          <p class="text-center mt-4 font-bold text-red-900 text-[10px] tracking-widest uppercase">Institutional Trio</p>
         </div>
-        <div class="bg-white p-4 rounded-3xl shadow-lg" data-aos="fade-up" data-aos-delay="400">
+        <div class="bg-white p-3 rounded-3xl shadow-xl" data-aos="fade-up" data-aos-delay="400">
           <iframe class="w-full aspect-video rounded-2xl" src="https://www.youtube.com/embed/BASxn-P7HO8" frameborder="0" allowfullscreen></iframe>
-          <p class="text-center mt-4 font-bold text-red-900 text-xs">KUM. HARSHINI IYER</p>
+          <p class="text-center mt-4 font-bold text-red-900 text-[10px] tracking-widest uppercase">Kum. Harshini Iyer</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="contact" class="py-32 px-6 bg-white border-t">
+  <section id="contact" class="py-24 md:py-32 px-6 bg-white border-t">
     <div class="container mx-auto max-w-6xl">
-      <div class="grid md:grid-cols-2 gap-20 items-center">
+      <div class="grid md:grid-cols-2 gap-16 items-center">
         <div data-aos="fade-right">
-          <h2 class="text-5xl font-bold text-red-950 mb-10 uppercase tracking-tighter">Contact Us</h2>
-          <div class="space-y-8 mb-10">
+          <h2 class="text-5xl font-bold text-red-950 mb-10 uppercase tracking-tighter">Contact</h2>
+          <div class="space-y-8 mb-12">
             <div class="flex items-center gap-6">
               <div class="w-12 h-12 rounded-full bg-red-50 flex items-center justify-center text-[#c5a059]"><i class="fas fa-phone"></i></div>
-              <a href="tel:+917760134034" class="text-lg font-semibold tracking-widest">+91 77601 34034</a>
+              <a href="tel:+917760134034" class="text-lg font-semibold tracking-wide">+91 77601 34034</a>
             </div>
             <div class="flex items-center gap-6">
               <div class="w-12 h-12 rounded-full bg-red-50 flex items-center justify-center text-[#c5a059]"><i class="fas fa-location-dot"></i></div>
-              <p class="text-lg font-semibold tracking-widest">Vivekanandanagar, Mysuru</p>
+              <p class="text-lg font-semibold tracking-wide">Vivekanandanagar, Mysuru</p>
             </div>
           </div>
-          <a href="https://maps.app.goo.gl/B7Xcmw5pCEoGXanf1" target="_blank" class="btn-gold px-12 py-5 rounded-full font-bold text-[10px] tracking-widest uppercase shadow-2xl block text-center md:inline-block">NAVIGATE TO INSTITUTE</a>
+          <a href="https://share.google/dhiuciv6fLypdXPcB" target="_blank" class="btn-gold px-12 py-5 rounded-full font-bold text-[11px] tracking-widest uppercase shadow-2xl block text-center md:inline-block">NAVIGATE TO INSTITUTE</a>
         </div>
-        <div class="h-[400px] bg-gray-50 rounded-[2.5rem] border border-gold/10 flex items-center justify-center overflow-hidden">
+        <div class="h-[350px] bg-gray-50 rounded-[2.5rem] border border-gold/10 flex items-center justify-center overflow-hidden grayscale hover:grayscale-0 transition duration-700">
            <i class="fas fa-map-marked-alt text-gray-200 text-9xl"></i>
         </div>
       </div>
@@ -259,28 +255,33 @@ I have applied the following critical fixes to your code:
       <div class="nav-arrow" onclick="changeImage(1)"><i class="fas fa-chevron-right"></i></div>
     </div>
     <img id="lightbox-img" src="" class="relative z-[10002] shadow-2xl">
-    <button onclick="closeLightbox()" class="absolute top-8 right-8 text-white text-3xl opacity-50 hover:opacity-100"><i class="fas fa-xmark"></i></button>
+    <button onclick="closeLightbox()" class="absolute top-8 right-8 text-white text-3xl opacity-40 hover:opacity-100 transition"><i class="fas fa-xmark"></i></button>
   </div>
 
-  <footer class="py-20 text-center bg-[#fdfbf7] text-gray-400 text-[10px] tracking-[0.5em] uppercase border-t">
-    <p>© 2026 Nruthyathi Kalaashaale</p>
+  <footer class="py-16 text-center bg-[#fdfbf7] text-gray-400 text-[10px] tracking-[0.4em] uppercase border-t">
+    <p>© 2026 Nruthyathi Kalaashaale | All Rights Reserved</p>
   </footer>
 
   <script>
-    // 🛡️ Screenshot Prevention: Disable Shortcuts & Detect PrintScreen
+    // Screenshot Protection
     document.addEventListener('keydown', e => {
       if (e.ctrlKey && (e.key === 'p' || e.key === 's' || e.key === 'u')) e.preventDefault();
       if (e.key === 'PrintScreen') {
-        document.body.style.visibility = 'hidden';
-        setTimeout(() => document.body.style.visibility = 'visible', 1000);
+        document.body.style.display = 'none';
+        setTimeout(() => document.body.style.display = 'block', 1000);
       }
     });
 
-    // Toggle Mobile Menu
+    // Navigation Logic
     function toggleMobileMenu() {
       const menu = document.getElementById('navMenu');
       menu.classList.toggle('hidden');
       menu.classList.toggle('show');
+    }
+    function closeMenu() {
+      const menu = document.getElementById('navMenu');
+      menu.classList.add('hidden');
+      menu.classList.remove('show');
     }
 
     // Slideshow Logic
@@ -306,14 +307,23 @@ I have applied the following critical fixes to your code:
       currentIdx = (currentIdx + n + slides.length) % slides.length;
       updateLightbox();
     }
-    function updateLightbox() { document.getElementById('lightbox-img').src = slides[currentIdx].src; }
+    function updateLightbox() { 
+        document.getElementById('lightbox-img').src = slides[currentIdx].src; 
+    }
+
+    // Keyboard controls for lightbox
+    window.addEventListener('keydown', e => {
+        if(document.getElementById('lightbox').style.display === 'flex') {
+            if(e.key === 'ArrowLeft') changeImage(-1);
+            if(e.key === 'ArrowRight') changeImage(1);
+            if(e.key === 'Escape') closeLightbox();
+        }
+    });
 
     window.onload = () => { 
-      AOS.init({ once: true, offset: 50 }); 
+      AOS.init({ once: true, offset: 60 }); 
       runSlideshow(); 
     };
   </script>
 </body>
 </html>
-
-```
