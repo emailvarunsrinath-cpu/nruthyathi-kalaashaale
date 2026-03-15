@@ -22,7 +22,7 @@
     /* Fixed Background with RAW05165 */
     .hero-section {
       position: relative;
-      height: 85vh;
+      height: 75vh;
       width: 100%;
       display: flex;
       align-items: center;
@@ -46,11 +46,11 @@
       width: 100%;
       max-width: 800px;
       margin: 0 auto;
-      height: 450px;
+      aspect-ratio: 16/9;
       border-radius: 20px;
       overflow: hidden;
-      border: 6px solid #fff;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+      border: 4px solid #fff;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
       cursor: pointer;
     }
     .mySlide {
@@ -60,6 +60,7 @@
       object-fit: cover;
       animation: fadeEffect 1s;
     }
+    .active-slide { display: block !important; }
     @keyframes fadeEffect { from {opacity: 0.6} to {opacity: 1} }
 
     /* Enhanced Lightbox */
@@ -74,38 +75,20 @@
       align-items: center;
     }
     #lightbox img { 
-      max-width: 85%; 
-      max-height: 75%; 
-      border: 4px solid #fff;
-      transition: transform 0.3s ease;
-    }
-    .lightbox-nav {
-      position: absolute;
-      top: 50%;
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      padding: 0 20px;
-      transform: translateY(-50%);
-      z-index: 10001;
-      pointer-events: none;
+      max-width: 90%; 
+      max-height: 80%; 
+      border: 2px solid #fff;
     }
     .nav-btn {
-      pointer-events: auto;
-      background: rgba(255,255,255,0.2);
+      background: rgba(255,255,255,0.15);
       color: white;
-      padding: 15px 20px;
+      padding: 12px 18px;
       border-radius: 50%;
       cursor: pointer;
-      transition: background 0.3s;
+      transition: 0.3s;
+      pointer-events: auto;
     }
-    .nav-btn:hover { background: rgba(255,255,255,0.4); }
-
-    .protection-layer {
-      position: absolute;
-      top: 0; left: 0; width: 100%; height: 100%;
-      z-index: 10;
-    }
+    .nav-btn:hover { background: rgba(255,255,255,0.3); }
 
     .btn-gold {
       background: #b8860b;
@@ -113,18 +96,21 @@
       transition: all 0.3s ease;
     }
     .btn-gold:hover { background: #966d09; transform: translateY(-2px); }
+    
+    /* Mobile nav adjustments */
+    #navMenu.show { display: flex; flex-direction: column; position: absolute; top: 100%; left: 0; width: 100%; background: white; padding: 1.5rem; box-shadow: 0 10px 15px rgba(0,0,0,0.1); }
   </style>
 </head>
 <body oncontextmenu="return false;">
 
   <nav class="fixed w-full top-0 z-[5000] bg-white/95 backdrop-blur-md shadow-sm border-b border-red-50">
     <div class="container mx-auto flex justify-between items-center py-4 px-6">
-      <a href="#home" class="text-xl md:text-2xl font-bold text-red-900 tracking-tight">
+      <a href="#home" class="text-xl md:text-2xl font-bold text-red-900">
         Nruthyathi <span class="text-yellow-600">Kalaashaale</span>
       </a>
-      <div id="navMenu" class="hidden md:flex space-x-8 text-sm font-bold uppercase tracking-widest text-gray-600">
+      <div id="navMenu" class="hidden md:flex space-x-6 lg:space-x-8 text-sm font-bold uppercase tracking-widest text-gray-600">
         <a href="#about" class="hover:text-red-700 transition">About</a>
-        <a href="#rangavidhi" class="hover:text-red-700 transition">Rangavidhi</a>
+        <a href="#rangavidhipraveshika" class="hover:text-red-700 transition">Rangavidhipraveshika</a>
         <a href="#events" class="hover:text-red-700 transition">Events</a>
         <a href="#gallery" class="hover:text-red-700 transition">Gallery</a>
         <a href="#contact" class="hover:text-red-700 transition">Contact</a>
@@ -134,21 +120,21 @@
   </nav>
 
   <section id="home" class="hero-section">
-    <div class="relative z-10 text-center px-6" data-aos="zoom-out" data-aos-duration="1500">
-      <h1 class="text-4xl md:text-7xl font-bold text-white mb-2 tracking-tight">Nruthyathi Kalaashaale</h1>
+    <div class="relative z-10 text-center px-6" data-aos="fade-up">
+      <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-2">Nruthyathi Kalaashaale</h1>
       <p class="text-lg md:text-2xl text-yellow-100 italic">Tradition, Devotion, Excellence</p>
     </div>
   </section>
 
-  <section id="about" class="py-24 px-6 bg-white">
+  <section id="about" class="py-20 px-6 bg-white">
     <div class="container mx-auto max-w-6xl">
-      <div class="grid md:grid-cols-2 gap-16 items-center">
+      <div class="grid md:grid-cols-2 gap-12 items-center text-center md:text-left">
         <div data-aos="fade-right">
           <h2 class="text-4xl font-bold text-red-900 mb-4">About Us</h2>
           <p class="text-gray-600 text-lg leading-relaxed mb-8">
-            Founded by <strong>Smt. Anusha Varun</strong>, Nruthyathi Kalaashaale is an institution dedicated to the preservation and promotion of Bharatanatyam. We serve 500+ students with a focus on discipline and grace.
+            Founded by <strong>Smt. Anusha Varun</strong>, Nruthyathi Kalaashaale is an institution dedicated to the technical purity and spiritual depth of Bharatanatyam. We nurture 500+ students in the Vasundhara style.
           </p>
-          <div class="flex flex-wrap gap-4">
+          <div class="flex flex-wrap justify-center md:justify-start gap-4">
             <a href="pdfs/Profile of Smt. Anusha Varun.pdf" download class="btn-gold px-8 py-3 rounded-full font-bold shadow-lg flex items-center gap-2">
               <i class="fas fa-file-lines"></i> Guru's Profile
             </a>
@@ -158,54 +144,56 @@
           </div>
         </div>
         <div class="flex justify-center" data-aos="fade-left">
-          <img src="images/RAW03170.jpg" alt="Dance Image" class="rounded-3xl shadow-2xl w-full max-w-sm border-4 border-white">
+          <img src="images/RAW03170.jpg" alt="About" class="rounded-3xl shadow-2xl w-full max-w-sm border-4 border-white">
         </div>
       </div>
     </div>
   </section>
 
-  <section id="gallery" class="py-24 px-6 bg-gray-50">
+  <section id="events" class="py-20 px-6 bg-red-900 text-white text-center">
+    <div class="container mx-auto max-w-5xl">
+      <h2 class="text-4xl font-bold text-yellow-400 mb-12">Upcoming Events 2026</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="p-8 border border-white/20 rounded-3xl bg-white/5 hover:bg-white/10 transition" data-aos="fade-up">
+          <h3 class="text-2xl font-bold text-yellow-200">Rangavidhipraveshika</h3>
+          <p class="mt-2 text-white/80">Senior Disciple of Guru Smt. Anusha Varun</p>
+        </div>
+        <div class="p-8 border border-white/20 rounded-3xl bg-white/5 hover:bg-white/10 transition" data-aos="fade-up" data-aos-delay="200">
+          <h3 class="text-2xl font-bold text-yellow-200">SAMAAGAMA 2026</h3>
+          <p class="mt-2 text-white/80">Annual Celebration of Nruthyathi Kalaashaale</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="gallery" class="py-20 px-6 bg-gray-50">
     <div class="container mx-auto text-center">
-      <h2 class="text-3xl md:text-4xl font-bold text-red-900 mb-12">Photo Gallery</h2>
-      <div class="gallery-container" onclick="openLightbox()">
-        <div class="protection-layer"></div>
-        <img class="mySlide" src="images/1.jpg">
+      <h2 class="text-4xl font-bold text-red-900 mb-12">Photo Gallery</h2>
+      <div class="gallery-container" onclick="openLightbox()" data-aos="zoom-in">
+        <img class="mySlide active-slide" src="images/1.jpg">
         <img class="mySlide" src="images/2.jpg">
         <img class="mySlide" src="images/3.jpg">
         <img class="mySlide" src="images/4.jpg">
         <img class="mySlide" src="images/5.jpg">
         <img class="mySlide" src="images/RAW03170.jpg">
       </div>
-      <p class="mt-4 text-gray-400 italic font-medium">Click to browse through our journey</p>
+      <p class="mt-4 text-gray-400 italic">Click to browse through our journey</p>
     </div>
   </section>
 
-  <div id="lightbox">
-    <div class="protection-layer" onclick="closeLightbox()"></div>
-    
-    <div class="lightbox-nav">
-      <div class="nav-btn" onclick="changeLightboxImage(-1)"><i class="fas fa-chevron-left"></i></div>
-      <div class="nav-btn" onclick="changeLightboxImage(1)"><i class="fas fa-chevron-right"></i></div>
-    </div>
-
-    <img id="lightbox-img" src="">
-    <button onclick="closeLightbox()" class="absolute top-10 right-10 text-white text-3xl hover:text-yellow-500 transition"><i class="fas fa-times"></i></button>
-    <p class="absolute bottom-10 text-white/50 text-xs">Protected Content | Nruthyathi Kalaashaale</p>
-  </div>
-
-  <section id="rangavidhi" class="py-24 px-6">
+  <section id="rangavidhi" class="py-20 px-6 bg-white">
     <div class="container mx-auto">
       <h2 class="text-4xl font-bold text-red-900 text-center mb-16">Rangavidhipraveshika</h2>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="bg-white p-4 shadow-xl rounded-2xl" data-aos="fade-up">
+        <div class="bg-white p-3 shadow-xl rounded-2xl border" data-aos="fade-up">
           <iframe class="w-full aspect-video rounded-xl" src="https://www.youtube.com/embed/lFL5n31P99k" frameborder="0" allowfullscreen></iframe>
           <p class="text-center mt-4 font-bold text-red-800 uppercase">Kum. Aisiri D</p>
         </div>
-        <div class="bg-white p-4 shadow-xl rounded-2xl" data-aos="fade-up" data-aos-delay="200">
+        <div class="bg-white p-3 shadow-xl rounded-2xl border" data-aos="fade-up" data-aos-delay="200">
           <iframe class="w-full aspect-video rounded-xl" src="https://www.youtube.com/embed/GIQfQzpwkfk" frameborder="0" allowfullscreen></iframe>
           <p class="text-center mt-4 font-bold text-red-800 uppercase">Mother & Daughter Trio</p>
         </div>
-        <div class="bg-white p-4 shadow-xl rounded-2xl" data-aos="fade-up" data-aos-delay="400">
+        <div class="bg-white p-3 shadow-xl rounded-2xl border" data-aos="fade-up" data-aos-delay="400">
           <iframe class="w-full aspect-video rounded-xl" src="https://www.youtube.com/embed/BASxn-P7HO8" frameborder="0" allowfullscreen></iframe>
           <p class="text-center mt-4 font-bold text-red-800 uppercase">Kum. Harshini Iyer</p>
         </div>
@@ -213,102 +201,72 @@
     </div>
   </section>
 
-  <section id="contact" class="py-24 px-6 bg-white text-center">
+  <section id="contact" class="py-20 px-6 bg-white border-t">
     <div class="container mx-auto max-w-5xl">
-      <h2 class="text-4xl font-bold text-red-900 mb-12">Contact Us</h2>
-      <div class="grid md:grid-cols-2 gap-12 items-center text-left">
+      <div class="grid md:grid-cols-2 gap-12 items-center text-center md:text-left">
         <div class="space-y-6">
-          <p class="text-xl flex items-center">
-            <i class="fas fa-phone text-red-700 mr-4"></i> 
-            <a href="tel:+917760134034" class="hover:text-red-800 transition">+91-7760134034</a>
+          <h2 class="text-4xl font-bold text-red-900">Contact Us</h2>
+          <p class="text-xl flex items-center justify-center md:justify-start">
+            <i class="fas fa-phone text-red-700 mr-4"></i> <a href="tel:+917760134034">+91-7760134034</a>
           </p>
-          <p class="text-xl flex items-center">
-            <i class="fas fa-map-marker-alt text-red-700 mr-4"></i> 
-            Vivekanandanagar, Mysuru
+          <p class="text-xl flex items-center justify-center md:justify-start">
+            <i class="fas fa-map-marker-alt text-red-700 mr-4"></i> Vivekanandanagar, Mysuru
           </p>
-          
-          <a href="https://www.google.com/maps/search/?api=1&query=Nruthyathi+Kalaashaale+Vivekanandanagar+Mysuru" 
-             target="_blank" 
-             rel="noopener noreferrer"
-             class="inline-block btn-gold px-10 py-4 rounded-full font-bold shadow-xl transition transform hover:scale-105">
-            <i class="fas fa-location-arrow mr-2"></i> Get Directions
-          </a>
+          <a href="https://maps.app.goo.gl/uvPj9EFQ7FuBXiBZA" target="_blank" class="inline-block btn-gold px-10 py-4 rounded-full font-bold shadow-xl">Get Directions</a>
         </div>
-        
-        <div class="rounded-3xl h-64 bg-gray-100 flex items-center justify-center border text-gray-300 relative overflow-hidden">
+        <div class="rounded-3xl h-64 bg-gray-100 flex items-center justify-center border text-gray-300 relative">
           <i class="fas fa-map-marked-alt text-7xl"></i>
-          <a href="https://www.google.com/maps/search/?api=1&query=Nruthyathi+Kalaashaale+Vivekanandanagar+Mysuru" 
-             target="_blank" 
-             class="absolute inset-0 z-10"></a>
+          <a href="https://maps.app.goo.gl/uvPj9EFQ7FuBXiBZA" target="_blank" class="absolute inset-0 z-10"></a>
         </div>
       </div>
     </div>
   </section>
+
+  <div id="lightbox">
+    <div class="absolute inset-0 cursor-pointer" onclick="closeLightbox()"></div>
+    <div class="absolute top-1/2 w-full flex justify-between px-6 z-[10001] pointer-events-none">
+      <div class="nav-btn" onclick="changeImage(-1)"><i class="fas fa-chevron-left"></i></div>
+      <div class="nav-btn" onclick="changeImage(1)"><i class="fas fa-chevron-right"></i></div>
+    </div>
+    <img id="lightbox-img" src="" class="relative z-[10002] shadow-2xl">
+    <button onclick="closeLightbox()" class="absolute top-8 right-8 text-white text-3xl z-[10003]"><i class="fas fa-times"></i></button>
+  </div>
 
   <footer class="py-12 text-center bg-gray-50 text-gray-400 text-sm">
     <p>© 2026 Nruthyathi Kalaashaale. All Rights Reserved.</p>
   </footer>
 
   <script>
-    // Navbar Toggle
     function toggleMobileMenu() {
-      const nav = document.getElementById('navMenu');
-      nav.classList.toggle('hidden');
+      document.getElementById('navMenu').classList.toggle('show');
     }
 
-    // Automatic Slideshow Logic
+    // Slideshow Logic
     let slideIndex = 0;
     const slides = document.getElementsByClassName("mySlide");
-    
     function runSlideshow() {
-      for (let i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";  
-      }
+      for (let i = 0; i < slides.length; i++) slides[i].classList.remove('active-slide');
       slideIndex++;
-      if (slideIndex > slides.length) {slideIndex = 1}    
-      slides[slideIndex-1].style.display = "block";  
+      if (slideIndex > slides.length) slideIndex = 1;
+      slides[slideIndex-1].classList.add('active-slide');
       setTimeout(runSlideshow, 4000); 
     }
 
-    // Lightbox Logic with Sequential Scrolling
-    let lightboxIndex = 0;
-
+    // Lightbox Navigation
+    let currentIdx = 0;
     function openLightbox() {
-      lightboxIndex = slideIndex - 1;
+      currentIdx = slideIndex - 1;
       updateLightbox();
       document.getElementById('lightbox').style.display = 'flex';
     }
-
-    function closeLightbox() {
-      document.getElementById('lightbox').style.display = 'none';
-    }
-
-    function changeLightboxImage(step) {
-      lightboxIndex += step;
-      if (lightboxIndex >= slides.length) lightboxIndex = 0;
-      if (lightboxIndex < 0) lightboxIndex = slides.length - 1;
+    function closeLightbox() { document.getElementById('lightbox').style.display = 'none'; }
+    function changeImage(n) {
+      currentIdx = (currentIdx + n + slides.length) % slides.length;
       updateLightbox();
     }
+    function updateLightbox() { document.getElementById('lightbox-img').src = slides[currentIdx].src; }
 
-    function updateLightbox() {
-      const img = document.getElementById('lightbox-img');
-      img.src = slides[lightboxIndex].src;
-    }
-
-    // Keyboard support for Lightbox
-    window.addEventListener('keydown', (e) => {
-      if (document.getElementById('lightbox').style.display === 'flex') {
-        if (e.key === 'ArrowLeft') changeLightboxImage(-1);
-        if (e.key === 'ArrowRight') changeLightboxImage(1);
-        if (e.key === 'Escape') closeLightbox();
-      }
-    });
-
-    // Initialize
-    window.onload = () => {
-      AOS.init({ once: true });
-      runSlideshow();
-    };
+    window.onload = () => { AOS.init({ once: true }); runSlideshow(); };
   </script>
 </body>
 </html>
