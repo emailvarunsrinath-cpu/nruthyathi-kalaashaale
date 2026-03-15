@@ -15,12 +15,9 @@
     body { 
       background-color: #faf9f6; 
       color: #2d2d2d; 
-      user-select: none; /* Disables text selection */
-      -webkit-touch-callout: none; /* Disables long-press save on mobile */
+      user-select: none; 
+      -webkit-touch-callout: none; 
     }
-
-    /* Prevent Right Click on images */
-    img { pointer-events: auto; }
 
     /* Fixed Background with RAW05165 */
     .hero-section {
@@ -43,7 +40,7 @@
       z-index: 1;
     }
 
-    /* Slideshow Container */
+    /* Gallery Container */
     .gallery-container {
       position: relative;
       width: 100%;
@@ -54,7 +51,7 @@
       overflow: hidden;
       border: 6px solid #fff;
       box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-      cursor: zoom-in;
+      cursor: pointer;
     }
     .mySlide {
       display: none;
@@ -65,22 +62,45 @@
     }
     @keyframes fadeEffect { from {opacity: 0.6} to {opacity: 1} }
 
-    /* Lightbox Styles */
+    /* Enhanced Lightbox */
     #lightbox {
       display: none;
       position: fixed;
       z-index: 9999;
       top: 0; left: 0; width: 100%; height: 100%;
       background: rgba(0,0,0,0.95);
+      flex-direction: column;
       justify-content: center;
       align-items: center;
     }
     #lightbox img { 
-      max-width: 90%; 
-      max-height: 80%; 
-      border: 4px solid #fff; 
+      max-width: 85%; 
+      max-height: 75%; 
+      border: 4px solid #fff;
+      transition: transform 0.3s ease;
     }
-    /* Anti-screenshot/save overlay */
+    .lightbox-nav {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      padding: 0 20px;
+      transform: translateY(-50%);
+      z-index: 10001;
+      pointer-events: none;
+    }
+    .nav-btn {
+      pointer-events: auto;
+      background: rgba(255,255,255,0.2);
+      color: white;
+      padding: 15px 20px;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .nav-btn:hover { background: rgba(255,255,255,0.4); }
+
     .protection-layer {
       position: absolute;
       top: 0; left: 0; width: 100%; height: 100%;
@@ -95,7 +115,9 @@
     .btn-gold:hover { background: #966d09; transform: translateY(-2px); }
   </style>
 </head>
-<body oncontextmenu="return false;"> <nav class="fixed w-full top-0 z-[5000] bg-white/95 backdrop-blur-md shadow-sm border-b border-red-50">
+<body oncontextmenu="return false;">
+
+  <nav class="fixed w-full top-0 z-[5000] bg-white/95 backdrop-blur-md shadow-sm border-b border-red-50">
     <div class="container mx-auto flex justify-between items-center py-4 px-6">
       <a href="#home" class="text-xl md:text-2xl font-bold text-red-900 tracking-tight">
         Nruthyathi <span class="text-yellow-600">Kalaashaale</span>
@@ -128,10 +150,10 @@
           </p>
           <div class="flex flex-wrap gap-4">
             <a href="pdfs/Profile of Smt. Anusha Varun.pdf" download class="btn-gold px-8 py-3 rounded-full font-bold shadow-lg flex items-center gap-2">
-              <i class="fas fa-file-pdf"></i> Guru's Profile
+              <i class="fas fa-file-lines"></i> Guru's Profile
             </a>
-            <a href="#" class="border-2 border-red-900 text-red-900 px-8 py-3 rounded-full font-bold hover:bg-red-50 transition">
-              Institute Profile
+            <a href="#" class="border-2 border-red-900 text-red-900 px-8 py-3 rounded-full font-bold hover:bg-red-50 transition flex items-center gap-2">
+              <i class="fas fa-file-lines"></i> Institute Profile
             </a>
           </div>
         </div>
@@ -154,9 +176,22 @@
         <img class="mySlide" src="images/5.jpg">
         <img class="mySlide" src="images/RAW03170.jpg">
       </div>
-      <p class="mt-4 text-gray-400 italic font-medium"><i class="fas fa-search-plus"></i> Click to view full screen</p>
+      <p class="mt-4 text-gray-400 italic font-medium">Click to browse through our journey</p>
     </div>
   </section>
+
+  <div id="lightbox">
+    <div class="protection-layer" onclick="closeLightbox()"></div>
+    
+    <div class="lightbox-nav">
+      <div class="nav-btn" onclick="changeLightboxImage(-1)"><i class="fas fa-chevron-left"></i></div>
+      <div class="nav-btn" onclick="changeLightboxImage(1)"><i class="fas fa-chevron-right"></i></div>
+    </div>
+
+    <img id="lightbox-img" src="">
+    <button onclick="closeLightbox()" class="absolute top-10 right-10 text-white text-3xl hover:text-yellow-500 transition"><i class="fas fa-times"></i></button>
+    <p class="absolute bottom-10 text-white/50 text-xs">Protected Content | Nruthyathi Kalaashaale</p>
+  </div>
 
   <section id="rangavidhi" class="py-24 px-6">
     <div class="container mx-auto">
@@ -164,44 +199,28 @@
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         <div class="bg-white p-4 shadow-xl rounded-2xl" data-aos="fade-up">
           <iframe class="w-full aspect-video rounded-xl" src="https://www.youtube.com/embed/lFL5n31P99k" frameborder="0" allowfullscreen></iframe>
-          <p class="text-center mt-4 font-bold text-red-800">Kum. Aisiri D</p>
+          <p class="text-center mt-4 font-bold text-red-800 uppercase">Kum. Aisiri D</p>
         </div>
         <div class="bg-white p-4 shadow-xl rounded-2xl" data-aos="fade-up" data-aos-delay="200">
           <iframe class="w-full aspect-video rounded-xl" src="https://www.youtube.com/embed/GIQfQzpwkfk" frameborder="0" allowfullscreen></iframe>
-          <p class="text-center mt-4 font-bold text-red-800">Mother & Daughter Trio</p>
+          <p class="text-center mt-4 font-bold text-red-800 uppercase">Mother & Daughter Trio</p>
         </div>
         <div class="bg-white p-4 shadow-xl rounded-2xl" data-aos="fade-up" data-aos-delay="400">
           <iframe class="w-full aspect-video rounded-xl" src="https://www.youtube.com/embed/BASxn-P7HO8" frameborder="0" allowfullscreen></iframe>
-          <p class="text-center mt-4 font-bold text-red-800">Kum. Harshini Iyer</p>
+          <p class="text-center mt-4 font-bold text-red-800 uppercase">Kum. Harshini Iyer</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="events" class="py-24 px-6 bg-red-900 text-white text-center">
-    <div class="container mx-auto">
-      <h2 class="text-3xl font-bold text-yellow-400 mb-12">Upcoming Events 2026</h2>
-      <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-        <div class="p-8 border border-white/20 rounded-3xl bg-white/5">
-          <h3 class="text-2xl font-bold text-yellow-200">Rangavidhipraveshika</h3>
-          <p class="opacity-80">Senior Disciple Debut</p>
-        </div>
-        <div class="p-8 border border-white/20 rounded-3xl bg-white/5">
-          <h3 class="text-2xl font-bold text-yellow-200">SAMAAGAMA 2026</h3>
-          <p class="opacity-80">Annual Celebration</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="contact" class="py-24 px-6 bg-white">
-    <div class="container mx-auto max-w-5xl text-center">
+  <section id="contact" class="py-24 px-6 bg-white text-center">
+    <div class="container mx-auto max-w-5xl">
       <h2 class="text-4xl font-bold text-red-900 mb-12">Contact Us</h2>
       <div class="grid md:grid-cols-2 gap-12 items-center text-left">
         <div class="space-y-6">
           <p class="text-xl"><i class="fas fa-phone text-red-700 mr-4"></i> +91-7760134034</p>
           <p class="text-xl"><i class="fas fa-map-marker-alt text-red-700 mr-4"></i> Vivekanandanagar, Mysuru</p>
-          <a href="https://share.google/B7Xcmw5pCEoGXanf1" target="_blank" class="inline-block btn-gold px-10 py-4 rounded-full font-bold shadow-xl">Get Directions</a>
+          <a href="https://share.google/B7Xcmw5pCEoGXanf1" target="_blank" class="inline-block btn-gold px-10 py-4 rounded-full font-bold shadow-xl transition transform hover:scale-105">Get Directions</a>
         </div>
         <div class="rounded-3xl h-64 bg-gray-100 flex items-center justify-center border text-gray-300">
           <i class="fas fa-map-marked-alt text-7xl"></i>
@@ -209,12 +228,6 @@
       </div>
     </div>
   </section>
-
-  <div id="lightbox" onclick="this.style.display='none'">
-    <div class="protection-layer"></div>
-    <img id="lightbox-img" src="">
-    <p class="absolute bottom-10 text-white text-sm">Protected by Nruthyathi Kalaashaale</p>
-  </div>
 
   <footer class="py-12 text-center bg-gray-50 text-gray-400 text-sm">
     <p>© 2026 Nruthyathi Kalaashaale. All Rights Reserved.</p>
@@ -229,24 +242,51 @@
 
     // Automatic Slideshow Logic
     let slideIndex = 0;
+    const slides = document.getElementsByClassName("mySlide");
+    
     function runSlideshow() {
-      const slides = document.getElementsByClassName("mySlide");
       for (let i = 0; i < slides.length; i++) {
         slides[i].style.display = "none";  
       }
       slideIndex++;
       if (slideIndex > slides.length) {slideIndex = 1}    
       slides[slideIndex-1].style.display = "block";  
-      setTimeout(runSlideshow, 3000); 
+      setTimeout(runSlideshow, 4000); 
     }
 
-    // Lightbox Logic
+    // Lightbox Logic with Sequential Scrolling
+    let lightboxIndex = 0;
+
     function openLightbox() {
-      const slides = document.getElementsByClassName("mySlide");
-      const currentSrc = slides[slideIndex-1].src;
-      document.getElementById('lightbox-img').src = currentSrc;
+      lightboxIndex = slideIndex - 1;
+      updateLightbox();
       document.getElementById('lightbox').style.display = 'flex';
     }
+
+    function closeLightbox() {
+      document.getElementById('lightbox').style.display = 'none';
+    }
+
+    function changeLightboxImage(step) {
+      lightboxIndex += step;
+      if (lightboxIndex >= slides.length) lightboxIndex = 0;
+      if (lightboxIndex < 0) lightboxIndex = slides.length - 1;
+      updateLightbox();
+    }
+
+    function updateLightbox() {
+      const img = document.getElementById('lightbox-img');
+      img.src = slides[lightboxIndex].src;
+    }
+
+    // Keyboard support for Lightbox
+    window.addEventListener('keydown', (e) => {
+      if (document.getElementById('lightbox').style.display === 'flex') {
+        if (e.key === 'ArrowLeft') changeLightboxImage(-1);
+        if (e.key === 'ArrowRight') changeLightboxImage(1);
+        if (e.key === 'Escape') closeLightbox();
+      }
+    });
 
     // Initialize
     window.onload = () => {
