@@ -18,7 +18,7 @@
     /* 🛡️ SECURITY & UI PROTECTION */
     * { -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; -webkit-touch-callout: none !important; }
     body { background-color: #fdfbf7; color: #332d2d; font-family: 'Plus Jakarta Sans', sans-serif; margin: 0; overflow-x: hidden; width: 100%; }
-    h1, h2, h3 { font-family: 'Cinzel', serif; letter-spacing: 0.05em; }
+    h1, h2, h3 { font-family: 'Cinzel', serif; letter-spacing: 0.1em; }
 
     /* 🎥 CINEMATIC HERO EFFECT */
     .hero-section {
@@ -28,6 +28,7 @@
       align-items: center;
       justify-content: center;
       overflow: hidden;
+      background: #1a0303;
     }
     .hero-section::before {
       content: "";
@@ -40,59 +41,64 @@
       animation: kenBurns 30s infinite alternate;
       z-index: 1;
     }
-    @keyframes kenBurns { from { transform: scale(1); } to { transform: scale(1.1); } }
+    @keyframes kenBurns { from { transform: scale(1); } to { transform: scale(1.15); } }
     
-    /* Mobile Background Fix */
     @media (max-width: 768px) { 
       .hero-section::before { background-attachment: scroll; } 
-      h1 { font-size: 3rem !important; line-height: 1.2; }
+      h1 { font-size: clamp(2.5rem, 8vw, 4rem) !important; }
     }
 
-    /* ✨ LUXURY GLASS CARDS */
+    /* ✨ LUXURY CARDS */
     .glass-box {
-      background: rgba(255, 255, 255, 0.7);
+      background: rgba(255, 255, 255, 0.75);
       backdrop-filter: blur(15px);
       border: 1px solid rgba(197, 160, 89, 0.2);
       border-radius: 2rem;
+      transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
     }
+    .glass-box:hover { transform: translateY(-10px); border-color: #c5a059; box-shadow: 0 20px 40px rgba(197, 160, 89, 0.1); }
 
     /* 🖼️ GALLERY FRAME */
     .gallery-frame {
       position: relative;
       width: 100%;
-      max-width: 850px;
+      max-width: 900px;
       margin: 0 auto;
       aspect-ratio: 16/9;
-      border-radius: 2rem;
+      border-radius: 2.5rem;
       overflow: hidden;
-      border: 6px solid white;
-      box-shadow: 0 30px 60px rgba(0,0,0,0.1);
+      border: 10px solid white;
+      box-shadow: 0 40px 80px rgba(0,0,0,0.1);
       cursor: pointer;
     }
-    .mySlide { display: none; width: 100%; height: 100%; object-fit: cover; }
-    .active-slide { display: block !important; animation: slideFade 1s ease-in-out; }
-    @keyframes slideFade { from { opacity: 0; } to { opacity: 1; } }
+    .mySlide { display: none; width: 100%; height: 100%; object-fit: cover; animation: slideIn 1.2s ease; }
+    .active-slide { display: block !important; }
+    @keyframes slideIn { from { opacity: 0; transform: scale(1.1); } to { opacity: 1; transform: scale(1); } }
 
-    /* 🔱 PREMIUM GOLD ELEMENTS */
+    /* 🔱 PREMIUM GOLD BUTTONS */
     .btn-gold {
       background: linear-gradient(135deg, #c5a059 0%, #8e6d13 100%);
       color: white;
-      box-shadow: 0 10px 25px rgba(142, 109, 19, 0.3);
+      box-shadow: 0 10px 25px rgba(142, 109, 19, 0.2);
+      transition: all 0.4s ease;
+      font-weight: 600;
+      letter-spacing: 1px;
     }
+    .btn-gold:hover { transform: scale(1.05); box-shadow: 0 15px 30px rgba(142, 109, 19, 0.4); }
 
     #lightbox {
       display: none;
       position: fixed;
       z-index: 9999;
       top: 0; left: 0; width: 100%; height: 100%;
-      background: rgba(0, 0, 0, 0.95);
+      background: rgba(0, 0, 0, 0.96);
       flex-direction: column;
       justify-content: center;
       align-items: center;
     }
-    #lightbox img { max-width: 95vw; max-height: 70vh; object-fit: contain; border: 2px solid #c5a059; }
+    #lightbox img { max-width: 95vw; max-height: 75vh; object-fit: contain; border: 2px solid #c5a059; border-radius: 8px; }
 
-    .gold-divider { height: 1px; width: 100px; background: #c5a059; margin: 20px auto; }
+    .gold-divider { height: 1px; width: 120px; background: #c5a059; margin: 25px auto; }
 
     /* Navigation Overlay */
     #navMenu.show { 
@@ -100,18 +106,19 @@
       flex-direction: column; 
       position: absolute; 
       top: 100%; left: 0; width: 100%; 
-      background: white; padding: 2rem; 
-      gap: 1.5rem; border-bottom: 2px solid #c5a059;
+      background: white; padding: 2.5rem; 
+      gap: 1.5rem; border-bottom: 3px solid #c5a059;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
     }
   </style>
 </head>
 <body oncontextmenu="return false;">
 
-  <nav class="fixed w-full top-0 z-[5000] bg-white/90 backdrop-blur-xl border-b border-gold/10">
-    <div class="container mx-auto flex justify-between items-center py-4 px-6">
-      <a href="#home" class="text-xl md:text-2xl font-bold text-red-950 tracking-tight">NRUTHYATHI <span class="text-[#c5a059] font-light">KALAASHAALE</span></a>
+  <nav class="fixed w-full top-0 z-[5000] bg-white/80 backdrop-blur-xl border-b border-gold/10">
+    <div class="container mx-auto flex justify-between items-center py-5 px-6 md:px-12">
+      <a href="#home" class="text-xl md:text-2xl font-bold text-red-950 tracking-tighter">NRUTHYATHI <span class="text-[#c5a059] font-light">KALAASHAALE</span></a>
       
-      <div id="navMenu" class="hidden md:flex space-x-6 lg:space-x-10 text-[10px] font-bold uppercase tracking-widest text-gray-500">
+      <div id="navMenu" class="hidden md:flex space-x-8 lg:space-x-12 text-[10px] font-bold uppercase tracking-widest text-gray-500">
         <a href="#about" class="hover:text-red-800 transition" onclick="closeMenu()">About</a>
         <a href="#rangavidhipraveshika" class="hover:text-red-800 transition" onclick="closeMenu()">Rangavidhipraveshika</a>
         <a href="#events" class="hover:text-red-800 transition" onclick="closeMenu()">Events</a>
@@ -124,54 +131,60 @@
   </nav>
 
   <section id="home" class="hero-section">
-    <div class="relative z-10 text-center px-4" data-aos="fade-up" data-aos-duration="1500">
-      <h1 class="text-4xl md:text-8xl font-bold text-white mb-4 drop-shadow-2xl uppercase">Nruthyathi</h1>
-      <p class="text-lg md:text-3xl text-[#c5a059] font-light italic tracking-widest">KALAASHAALE</p>
+    <div class="relative z-10 text-center px-4" data-aos="fade-up" data-aos-duration="2000">
+      <h1 class="text-5xl md:text-8xl font-bold text-white mb-4 drop-shadow-2xl">Nruthyathi</h1>
+      <p class="text-xl md:text-4xl text-[#c5a059] font-light italic tracking-[0.2em]">KALAASHAALE</p>
       <div class="gold-divider"></div>
-      <p class="text-white/70 text-[10px] md:text-sm uppercase tracking-[0.4em] mt-4">A Temple of Bharatanatyam Excellence</p>
+      <p class="text-white/70 text-[10px] md:text-sm uppercase tracking-[0.6em] mt-6">Classical Excellence • Divine Grace</p>
     </div>
   </section>
 
-  <section id="about" class="py-20 md:py-32 px-6 bg-white">
+  <section id="about" class="py-24 md:py-40 px-6 bg-white">
     <div class="container mx-auto max-w-6xl">
-      <div class="grid md:grid-cols-2 gap-12 items-center">
-        <div data-aos="fade-right">
-          <h2 class="text-3xl md:text-5xl font-bold text-red-950 mb-6 uppercase">Our Heritage</h2>
-          <p class="text-gray-600 text-lg leading-relaxed mb-10 font-light">
-            Founded by <strong>Smt. Anusha Varun</strong>, Nruthyathi Kalaashaale mentors over 500 students in the pursuit of technical purity and spiritual devotion through Bharatanatyam.
+      <div class="grid md:grid-cols-2 gap-16 items-center">
+        <div data-aos="fade-right" data-aos-duration="1200">
+          <span class="text-[#c5a059] font-bold tracking-[0.3em] text-[10px] uppercase mb-4 block">The Institution</span>
+          <h2 class="text-4xl md:text-6xl font-bold text-red-950 mb-8 leading-tight">Heritage & Tradition</h2>
+          <p class="text-gray-600 text-lg leading-relaxed mb-10 font-light italic">
+            Founded by <strong>Smt. Anusha Varun</strong>, Nruthyathi Kalaashaale mentors over 500 students in the pursuit of technical purity and spiritual devotion through the sacred art of Bharatanatyam.
           </p>
-          <div class="flex flex-wrap gap-4 justify-center md:justify-start">
-            <a href="pdfs/Profile of Smt. Anusha Varun.pdf" download class="btn-gold px-8 py-3 rounded-full text-[10px] font-bold tracking-widest">GURU'S PROFILE</a>
-            <a href="#" class="border border-red-900/20 text-red-900 px-8 py-3 rounded-full font-bold text-[10px] tracking-widest hover:bg-red-50">INSTITUTION PROFILE</a>
+          <div class="flex flex-wrap gap-4">
+            <a href="pdfs/Profile of Smt. Anusha Varun.pdf" download class="btn-gold px-10 py-4 rounded-full text-[10px] font-bold tracking-widest">
+              <i class="fas fa-file-lines mr-2"></i> GURU'S PROFILE
+            </a>
+            <a href="#" class="border border-red-950/20 text-red-950 px-10 py-4 rounded-full font-bold text-[10px] tracking-widest hover:bg-red-50 transition-colors">INSTITUTE PROFILE</a>
           </div>
         </div>
-        <div class="relative mt-10 md:mt-0" data-aos="zoom-in">
-          <img src="images/RAW03170.jpg" alt="Dance" class="rounded-[2rem] shadow-2xl w-full max-w-xs mx-auto border-4 border-white">
+        <div class="relative" data-aos="zoom-in" data-aos-duration="1500">
+          <div class="absolute -inset-6 bg-[#c5a059]/5 rounded-[4rem] -rotate-3"></div>
+          <img src="images/RAW03170.jpg" alt="Dance" class="relative rounded-[3rem] shadow-2xl w-full max-w-md mx-auto border-8 border-white">
         </div>
       </div>
     </div>
   </section>
 
-  <section id="events" class="py-20 bg-[#1a0303] text-white">
+  <section id="events" class="py-32 bg-[#1a0303] text-white">
     <div class="container mx-auto text-center px-6">
-      <h2 class="text-3xl md:text-4xl font-bold text-[#c5a059] mb-12 uppercase tracking-widest">Grand Season 2026</h2>
-      <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-        <div class="p-8 border border-white/10 rounded-2xl bg-white/5" data-aos="fade-up">
-          <h3 class="text-xl font-bold text-yellow-100 mb-2 uppercase">Rangavidhipraveshika</h3>
-          <p class="text-white/40 text-sm italic">Grand Solo Debut Milestone</p>
+      <h2 class="text-4xl md:text-5xl font-bold text-[#c5a059] mb-20 uppercase tracking-[0.2em]">Grand Season 2026</h2>
+      <div class="grid md:grid-cols-2 gap-10 max-w-5xl mx-auto">
+        <div class="glass-box p-12 md:p-20 bg-white/5 border-white/10" data-aos="fade-up">
+          <h3 class="text-2xl font-bold text-yellow-100 mb-4 uppercase">Rangavidhipraveshika</h3>
+          <p class="text-white/40 text-sm italic font-light">The monumental solo stage debut of our Senior Disciple.</p>
+          <div class="mt-8 text-[#c5a059] text-[10px] font-bold tracking-widest">WINTER 2026</div>
         </div>
-        <div class="p-8 border border-white/10 rounded-2xl bg-white/5" data-aos="fade-up" data-aos-delay="200">
-          <h3 class="text-xl font-bold text-yellow-100 mb-2 uppercase">Samaagama 2026</h3>
-          <p class="text-white/40 text-sm italic">Annual Institutional Showcase</p>
+        <div class="glass-box p-12 md:p-20 bg-white/5 border-white/10" data-aos="fade-up" data-aos-delay="200">
+          <h3 class="text-2xl font-bold text-yellow-100 mb-4 uppercase">Samaagama 2026</h3>
+          <p class="text-white/40 text-sm italic font-light">The annual celebration of rhythm and devotion.</p>
+          <div class="mt-8 text-[#c5a059] text-[10px] font-bold tracking-widest">ANNUAL FESTIVAL</div>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="gallery" class="py-20 px-6">
+  <section id="gallery" class="py-32 px-6">
     <div class="container mx-auto text-center">
-      <h2 class="text-3xl md:text-4xl font-bold text-red-950 mb-12 uppercase">The Gallery</h2>
-      <div class="gallery-frame" onclick="openLightbox()" data-aos="zoom-in">
+      <h2 class="text-4xl md:text-5xl font-bold text-red-950 mb-16 uppercase tracking-tighter">The Gallery</h2>
+      <div class="gallery-frame" onclick="openLightbox()" data-aos="zoom-out-up" data-aos-duration="1500">
         <div class="absolute inset-0 z-20"></div>
         <img class="mySlide active-slide" src="images/1.jpg">
         <img class="mySlide" src="images/2.jpg">
@@ -180,43 +193,49 @@
         <img class="mySlide" src="images/5.jpg">
         <img class="mySlide" src="images/RAW03170.jpg">
       </div>
-      <p class="mt-6 text-[#c5a059] text-[10px] font-bold uppercase tracking-widest">Tap to view full screen</p>
+      <p class="mt-10 text-[#c5a059] text-[10px] font-bold uppercase tracking-[0.4em] animate-pulse">Tap to enter the experience</p>
     </div>
   </section>
 
-  <section id="rangavidhipraveshika" class="py-20 px-6 bg-[#f9f7f2]">
+  <section id="rangavidhipraveshika" class="py-32 px-6 bg-[#f9f7f2]">
     <div class="container mx-auto">
-      <h2 class="text-3xl md:text-4xl font-bold text-red-950 text-center mb-16 uppercase">Performances</h2>
-      <div class="grid md:grid-cols-3 gap-8">
-        <div class="bg-white p-3 rounded-2xl shadow-xl" data-aos="fade-up">
-          <iframe class="w-full aspect-video rounded-xl" src="https://www.youtube.com/embed/lFL5n31P99k" frameborder="0" allowfullscreen></iframe>
-          <p class="text-center mt-4 font-bold text-red-900 text-[10px]">KUM. AISIRI D</p>
+      <h2 class="text-3xl md:text-4xl font-bold text-red-950 text-center mb-20 uppercase tracking-widest">Milestones</h2>
+      <div class="grid md:grid-cols-3 gap-10">
+        <div class="glass-box p-6 shadow-xl" data-aos="fade-up">
+          <iframe class="w-full aspect-video rounded-[2rem] shadow-lg" src="https://www.youtube.com/embed/lFL5n31P99k" frameborder="0" allowfullscreen></iframe>
+          <p class="text-center mt-8 font-bold text-red-900 text-[10px] tracking-widest uppercase">Kum. Aisiri D</p>
         </div>
-        <div class="bg-white p-3 rounded-2xl shadow-xl" data-aos="fade-up" data-aos-delay="200">
-          <iframe class="w-full aspect-video rounded-xl" src="https://www.youtube.com/embed/GIQfQzpwkfk" frameborder="0" allowfullscreen></iframe>
-          <p class="text-center mt-4 font-bold text-red-900 text-[10px]">INSTITUTIONAL TRIO</p>
+        <div class="glass-box p-6 shadow-xl" data-aos="fade-up" data-aos-delay="200">
+          <iframe class="w-full aspect-video rounded-[2rem] shadow-lg" src="https://www.youtube.com/embed/GIQfQzpwkfk" frameborder="0" allowfullscreen></iframe>
+          <p class="text-center mt-8 font-bold text-red-900 text-[10px] tracking-widest uppercase">Institutional Trio</p>
         </div>
-        <div class="bg-white p-3 rounded-2xl shadow-xl" data-aos="fade-up" data-aos-delay="400">
-          <iframe class="w-full aspect-video rounded-xl" src="https://www.youtube.com/embed/BASxn-P7HO8" frameborder="0" allowfullscreen></iframe>
-          <p class="text-center mt-4 font-bold text-red-900 text-[10px]">KUM. HARSHINI IYER</p>
+        <div class="glass-box p-6 shadow-xl" data-aos="fade-up" data-aos-delay="400">
+          <iframe class="w-full aspect-video rounded-[2rem] shadow-lg" src="https://www.youtube.com/embed/BASxn-P7HO8" frameborder="0" allowfullscreen></iframe>
+          <p class="text-center mt-8 font-bold text-red-900 text-[10px] tracking-widest uppercase">Kum. Harshini Iyer</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="contact" class="py-20 px-6 bg-white border-t">
+  <section id="contact" class="py-32 md:py-48 px-6 bg-white border-t">
     <div class="container mx-auto max-w-6xl">
-      <div class="grid md:grid-cols-2 gap-16 items-center">
-        <div class="text-center md:text-left" data-aos="fade-right">
-          <h2 class="text-4xl md:text-6xl font-bold text-red-950 mb-10 uppercase tracking-tighter">Contact</h2>
-          <div class="space-y-6 mb-10">
-            <p class="text-lg md:text-xl font-light"><i class="fas fa-phone text-[#c5a059] mr-4"></i> +91 77601 34034</p>
-            <p class="text-lg md:text-xl font-light"><i class="fas fa-location-dot text-[#c5a059] mr-4"></i> Vivekanandanagar, Mysuru</p>
+      <div class="grid md:grid-cols-2 gap-20 items-center">
+        <div data-aos="fade-right">
+          <h2 class="text-5xl md:text-7xl font-bold text-red-950 mb-12 uppercase tracking-tighter">Contact</h2>
+          <div class="space-y-10 mb-16">
+            <div class="flex items-center gap-8">
+              <div class="w-14 h-14 rounded-full bg-red-50 flex items-center justify-center text-[#c5a059] shadow-inner"><i class="fas fa-phone-volume text-xl"></i></div>
+              <a href="tel:+917760134034" class="text-xl font-light tracking-widest hover:text-[#c5a059] transition-colors">+91 77601 34034</a>
+            </div>
+            <div class="flex items-center gap-8">
+              <div class="w-14 h-14 rounded-full bg-red-50 flex items-center justify-center text-[#c5a059] shadow-inner"><i class="fas fa-location-dot text-xl"></i></div>
+              <p class="text-xl font-light tracking-widest">Vivekanandanagar, Mysuru</p>
+            </div>
           </div>
-          <a href="https://www.google.com/maps/search/?api=1&query=Nruthyathi+Kalaashaale+Mysuru" target="_blank" class="btn-gold px-12 py-5 rounded-full font-bold text-[10px] tracking-widest uppercase inline-block">NAVIGATE TO INSTITUTE</a>
+          <a href="https://share.google/dhiuciv6fLypdXPcB" target="_blank" class="btn-gold px-16 py-6 rounded-full font-bold text-[10px] tracking-widest uppercase shadow-2xl block text-center md:inline-block">NAVIGATE TO INSTITUTE</a>
         </div>
-        <div class="h-64 md:h-[400px] glass-box border-gold/10 flex items-center justify-center overflow-hidden" data-aos="zoom-in">
-           <i class="fas fa-map-marked-alt text-gray-100 text-9xl"></i>
+        <div class="h-[400px] glass-box border-gold/10 flex items-center justify-center overflow-hidden" data-aos="zoom-in">
+           <i class="fas fa-map-marked-alt text-gray-200 text-[12rem]"></i>
         </div>
       </div>
     </div>
@@ -224,19 +243,20 @@
 
   <div id="lightbox">
     <div class="absolute inset-0" onclick="closeLightbox()"></div>
-    <div class="absolute top-1/2 w-full flex justify-between px-6 z-[10010]">
-      <div class="nav-btn text-white text-3xl cursor-pointer p-4" onclick="changeImage(-1)"><i class="fas fa-chevron-left"></i></div>
-      <div class="nav-btn text-white text-3xl cursor-pointer p-4" onclick="changeImage(1)"><i class="fas fa-chevron-right"></i></div>
+    <div class="absolute top-1/2 w-full flex justify-between px-10 z-[10010] pointer-events-none">
+      <div class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center text-white cursor-pointer pointer-events-auto nav-arrow" onclick="changeImage(-1)"><i class="fas fa-chevron-left"></i></div>
+      <div class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center text-white cursor-pointer pointer-events-auto nav-arrow" onclick="changeImage(1)"><i class="fas fa-chevron-right"></i></div>
     </div>
     <img id="lightbox-img" src="" class="relative z-[10002] shadow-2xl">
-    <button onclick="closeLightbox()" class="absolute top-6 right-6 text-white text-3xl"><i class="fas fa-xmark"></i></button>
+    <button onclick="closeLightbox()" class="absolute top-10 right-10 text-white text-4xl opacity-40 hover:opacity-100 transition"><i class="fas fa-xmark"></i></button>
   </div>
 
-  <footer class="py-12 text-center text-gray-400 text-[10px] tracking-[0.4em] uppercase border-t">
+  <footer class="py-20 text-center bg-[#fdfbf7] text-gray-400 text-[10px] tracking-[0.6em] uppercase border-t">
     <p>© 2026 Nruthyathi Kalaashaale</p>
   </footer>
 
   <script>
+    // Navigation
     function toggleMobileMenu() {
       const menu = document.getElementById('navMenu');
       menu.classList.toggle('hidden');
@@ -248,6 +268,7 @@
       menu.classList.remove('show');
     }
 
+    // Advanced Slideshow
     let slideIndex = 0;
     const slides = document.getElementsByClassName("mySlide");
     function runSlideshow() {
@@ -258,7 +279,9 @@
       setTimeout(runSlideshow, 5000); 
     }
 
+    // Swipable Lightbox
     let currentIdx = 0;
+    let startX = 0;
     function openLightbox() {
       currentIdx = slideIndex - 1;
       updateLightbox();
@@ -269,10 +292,21 @@
       currentIdx = (currentIdx + n + slides.length) % slides.length;
       updateLightbox();
     }
-    function updateLightbox() { document.getElementById('lightbox-img').src = slides[currentIdx].src; }
+    function updateLightbox() { 
+      document.getElementById('lightbox-img').src = slides[currentIdx].src; 
+    }
+
+    // Swipe and Keyboard logic
+    const lbImg = document.getElementById('lightbox-img');
+    lbImg.addEventListener('touchstart', e => startX = e.touches[0].clientX);
+    lbImg.addEventListener('touchend', e => {
+      let endX = e.changedTouches[0].clientX;
+      if (startX - endX > 50) changeImage(1);
+      if (endX - startX > 50) changeImage(-1);
+    });
 
     window.onload = () => { 
-      AOS.init({ once: true }); 
+      AOS.init({ once: true, offset: 60 }); 
       runSlideshow(); 
     };
   </script>
