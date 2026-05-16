@@ -15,7 +15,6 @@
   <style>
     html { scroll-behavior: smooth; overflow-x: hidden; }
     
-    /* 🛡️ SECURITY & UI PROTECTION */
     * { -webkit-user-select: none; user-select: none; -webkit-touch-callout: none !important; }
     
     body { 
@@ -101,18 +100,33 @@
       justify-content: center; align-items: center;
     }
     #lightbox img { max-width: 95vw; max-height: 80vh; object-fit: contain; border: 2px solid #d4af37; }
+
+    /* LOGO STYLING */
+    .nav-logo {
+        height: 50px;
+        width: auto;
+        transition: transform 0.3s ease;
+    }
+    .nav-logo-container {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
   </style>
 </head>
 <body oncontextmenu="return false;">
 
   <nav class="fixed w-full top-0 z-[5000] bg-white/95 backdrop-blur-md border-b border-gold/10 shadow-sm">
-    <div class="container mx-auto flex justify-between items-center py-4 px-6 md:px-10">
-      <a href="#home" class="text-xl md:text-2xl font-bold text-[#4a0404] tracking-tighter uppercase royal-font">
-        Nruthyathi <span class="text-[#d4af37] font-light">Kalaashaale</span>
+    <div class="container mx-auto flex justify-between items-center py-3 px-6 md:px-10">
+      <a href="#home" class="nav-logo-container">
+        <img src="Kalaashaale Logo with Registered Icon (1).png" alt="Logo" class="nav-logo">
+        <div class="hidden sm:block text-xl font-bold text-[#4a0404] tracking-tighter uppercase royal-font">
+          Nruthyathi <span class="text-[#d4af37] font-light">Kalaashaale</span>
+        </div>
       </a>
       <div id="navMenu" class="hidden md:flex space-x-8 text-[11px] font-semibold uppercase tracking-[0.2em] text-gray-500">
         <a href="#about" class="hover:text-[#4a0404] transition" onclick="closeMenu()">About</a>
-        <a href="#rangavidhipraveshika" class="hover:text-[#4a0404] transition" onclick="closeMenu()">Rangavidhipravehika</a>
+        <a href="#rangavidhipraveshika" class="hover:text-[#4a0404] transition" onclick="closeMenu()">Milestones</a>
         <a href="#events" class="hover:text-[#4a0404] transition" onclick="closeMenu()">Events</a>
         <a href="#gallery" class="hover:text-[#4a0404] transition" onclick="closeMenu()">Gallery</a>
         <a href="#contact" class="hover:text-[#4a0404] transition" onclick="closeMenu()">Contact</a>
@@ -235,6 +249,7 @@
     </div>
   </div>
 </section>
+
   <section id="gallery" class="py-24 px-6 bg-[#fcf9f5]">
     <div class="container mx-auto text-center">
       <h2 class="text-4xl font-bold text-[#4a0404] mb-12 uppercase tracking-tighter">Photo Gallery</h2>
@@ -273,14 +288,21 @@
   <section id="contact" class="py-24 md:py-40 px-6 bg-[#f9f5f0] border-t border-[#d4af37]/20">
     <div class="container mx-auto max-w-4xl text-center">
       <h2 class="text-5xl md:text-7xl font-bold text-[#4a0404] mb-12 uppercase tracking-tighter">Contact</h2>
-      <div class="flex flex-col md:flex-row justify-center gap-12 mb-16">
-        <div class="flex flex-col items-center">
+      
+      <div class="grid md:grid-cols-3 gap-12 mb-16">
+        <div class="flex flex-col items-center" data-aos="fade-up">
           <i class="fas fa-phone text-[#d4af37] text-2xl mb-4"></i>
-          <a href="tel:+917760134034" class="text-xl font-light tracking-widest hover:text-[#d4af37] transition-colors">+91 77601 34034</a>
+          <a href="tel:+917760134034" class="text-lg font-light tracking-widest hover:text-[#d4af37] transition-colors">+91 77601 34034</a>
         </div>
-        <div class="flex flex-col items-center">
+
+        <div class="flex flex-col items-center" data-aos="fade-up" data-aos-delay="100">
+          <i class="fas fa-envelope text-[#d4af37] text-2xl mb-4"></i>
+          <a href="mailto:contact@nruthyathikalaashaale.com" class="text-lg font-light tracking-widest hover:text-[#d4af37] transition-colors">contact@nruthyathikalaashaale.com</a>
+        </div>
+
+        <div class="flex flex-col items-center" data-aos="fade-up" data-aos-delay="200">
           <i class="fas fa-location-dot text-[#d4af37] text-2xl mb-4"></i>
-          <p class="text-xl font-light tracking-widest">Vivekanandanagar, Mysuru</p>
+          <p class="text-lg font-light tracking-widest">Vivekanandanagar, Mysuru</p>
         </div>
       </div>
       
@@ -302,8 +324,9 @@
     <button onclick="closeLightbox()" class="absolute top-6 right-6 text-white text-3xl"><i class="fas fa-xmark"></i></button>
   </div>
 
-  <footer class="py-16 text-center bg-white text-gray-400 text-[10px] tracking-[0.5em] uppercase border-t border-gold/10">
-    <p>© 2026 Nruthyathi Kalaashaale</p>
+  <footer class="py-16 text-center bg-white border-t border-gold/10">
+    <img src="Kalaashaale Logo with Registered Icon (1).png" alt="Footer Logo" class="h-12 mx-auto mb-6 opacity-80">
+    <p class="text-gray-400 text-[10px] tracking-[0.5em] uppercase">© 2026 Nruthyathi Kalaashaale</p>
   </footer>
 
   <script>
