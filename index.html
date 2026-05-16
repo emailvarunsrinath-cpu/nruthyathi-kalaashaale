@@ -103,36 +103,40 @@
 
     /* LOGO STYLING */
     .nav-logo {
-        height: 60px;
+        height: 100px; /* Make the logo significantly larger */
         width: auto;
         display: block;
+        margin-top: 10px; /* Push it down into the background */
+        filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2)); /* Add shadow for better integration */
+        transition: transform 0.3s ease;
+    }
+    .nav-logo:hover {
+        transform: scale(1.03); /* Subtle scale on hover */
     }
     .nav-logo-container {
         display: flex;
-        align-items: center;
+        align-items: flex-start; /* Align logo to the top */
         gap: 15px;
+        position: relative;
+        z-index: 20;
     }
   </style>
 </head>
 <body oncontextmenu="return false;">
 
   <nav class="fixed w-full top-0 z-[5000] bg-white/95 backdrop-blur-md border-b border-gold/10 shadow-sm">
-    <div class="container mx-auto flex justify-between items-center py-2 px-6 md:px-10">
-      <a href="#home" class="nav-logo-container">
+    <div class="container mx-auto flex justify-between items-center py-1 px-6 md:px-10"> <a href="#home" class="nav-logo-container">
         <img src="Kalaashaale Logo with Registered Icon (1).png" alt="Nruthyathi Logo" class="nav-logo">
-        <div class="hidden lg:block text-xl font-bold text-[#4a0404] tracking-tighter uppercase royal-font">
-          Nruthyathi <span class="text-[#d4af37] font-light">Kalaashaale</span>
+        <div class="hidden lg:block text-xl font-bold text-[#4a0404] tracking-tighter uppercase royal-font mt-8"> Nruthyathi <span class="text-[#d4af37] font-light">Kalaashaale</span>
         </div>
       </a>
-      <div id="navMenu" class="hidden md:flex space-x-8 text-[11px] font-semibold uppercase tracking-[0.2em] text-gray-500">
-        <a href="#about" class="hover:text-[#4a0404] transition" onclick="closeMenu()">About</a>
+      <div id="navMenu" class="hidden md:flex space-x-8 text-[11px] font-semibold uppercase tracking-[0.2em] text-gray-500 mt-2"> <a href="#about" class="hover:text-[#4a0404] transition" onclick="closeMenu()">About</a>
         <a href="#rangavidhipraveshika" class="hover:text-[#4a0404] transition" onclick="closeMenu()">Milestones</a>
         <a href="#events" class="hover:text-[#4a0404] transition" onclick="closeMenu()">Events</a>
         <a href="#gallery" class="hover:text-[#4a0404] transition" onclick="closeMenu()">Gallery</a>
         <a href="#contact" class="hover:text-[#4a0404] transition" onclick="closeMenu()">Contact</a>
       </div>
-      <button onclick="toggleMobileMenu()" class="md:hidden text-[#4a0404] text-2xl"><i class="fa-solid fa-bars-staggered"></i></button>
-    </div>
+      <button onclick="toggleMobileMenu()" class="md:hidden text-[#4a0404] text-2xl mt-2"><i class="fa-solid fa-bars-staggered"></i></button> </div>
   </nav>
 
  <section id="home" class="hero-section">
