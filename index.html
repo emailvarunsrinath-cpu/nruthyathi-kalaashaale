@@ -186,6 +186,29 @@
         z-index: 20;
     }
 
+    /* RANGAPRAVESHA YEAR TABS */
+    .rp-tab {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #b8a68e;
+      background: transparent;
+      border: 1px solid rgba(74,4,4,0.15);
+      padding: 0.6rem 1.8rem;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .rp-tab:hover { color: #4a0404; border-color: rgba(212,175,55,0.5); }
+    .rp-tab.rp-active {
+      color: #fff;
+      background: linear-gradient(135deg, #d4af37 0%, #aa8a2e 100%);
+      border-color: transparent;
+      box-shadow: 0 10px 20px rgba(212,175,55,0.35);
+    }
+    .rp-panel { display: none; }
+    .rp-panel.rp-active { display: block; animation: fadeInScale 0.6s ease; }
+
     .badge-pill {
       display: inline-block;
       font-size: 0.62rem;
@@ -396,43 +419,106 @@
   <!-- RANGAVIDHI PRAVESHIKA ARCHIVE (NEW) -->
   <section id="rangapravesha" class="py-24 md:py-32 px-6 bg-white">
     <div class="container mx-auto max-w-6xl">
-      <div class="text-center mb-16" data-aos="fade-down">
+      <div class="text-center mb-14" data-aos="fade-down">
         <span class="kicker">A Sacred Milestone</span>
         <h2 class="text-4xl md:text-5xl font-bold text-[#4a0404] uppercase tracking-tight">Rangavidhi Praveshika</h2>
         <div class="section-divider"></div>
         <p class="text-gray-500 max-w-2xl mx-auto mt-6 font-light">
-          A living record of our disciples' Rangapravesha — the solo stage debut marking years of disciplined training. Each entry preserves the date, chief guests, venue and the formal invitation for that milestone.
+          A living record of our disciples' Rangapravesha — the solo stage debut marking years of disciplined training. Choose a year to see that milestone's date, chief guests, venue, invitation and brochure.
         </p>
       </div>
 
-      <!--
-        HOW TO ADD A NEW ENTRY:
-        Copy the block below into #rangapravesha-list (above the "No entries yet" card,
-        or replace it once the first entry is added), then fill in the details and
-        drop the invitation image at images/invitations/<file>.jpg
+      <!-- Year tabs -->
+      <div class="flex flex-wrap items-center justify-center gap-3 mb-14" id="rp-year-tabs" data-aos="fade-up">
+        <button type="button" class="rp-tab" data-year="2026">2026</button>
+        <button type="button" class="rp-tab" data-year="2025">2025</button>
+        <button type="button" class="rp-tab" data-year="2024">2024</button>
+      </div>
 
-        <div class="info-card grid md:grid-cols-[240px_1fr] gap-0 overflow-hidden" data-aos="fade-up">
-          <img src="images/invitations/FILE.jpg" alt="Rangapravesha invitation for NAME" loading="lazy" class="w-full h-64 md:h-full object-cover">
-          <div class="p-8 md:p-10 flex flex-col justify-center">
-            <h3 class="text-2xl font-bold text-[#4a0404] mb-1 royal-font">NAME</h3>
-            <p class="text-[#d4af37] text-xs font-bold uppercase tracking-widest mb-5">DATE</p>
-            <div class="grid sm:grid-cols-2 gap-3 text-sm text-gray-600">
-              <p><i class="fas fa-user-tie text-[#d4af37] mr-2"></i><strong class="text-[#4a0404]">Chief Guest:</strong> NAME(S)</p>
-              <p><i class="fas fa-location-dot text-[#d4af37] mr-2"></i><strong class="text-[#4a0404]">Venue:</strong> VENUE</p>
+      <!-- 2026 -->
+      <div class="rp-panel" data-year="2026">
+        <div class="info-card overflow-hidden md:grid md:grid-cols-[260px_1fr]" data-aos="fade-up">
+          <img src="images/rangapravesha/harshini-iyer/portrait.jpg" alt="Kum. Harshini Iyer" loading="lazy" class="w-full h-64 md:h-full object-cover">
+          <div class="p-8 md:p-10">
+            <h3 class="text-2xl font-bold text-[#4a0404] mb-1 royal-font">Kum. Harshini Iyer</h3>
+            <p class="text-[#d4af37] text-xs font-bold uppercase tracking-widest mb-6">Sunday, 25 January 2026 &middot; 4:30 PM</p>
+            <div class="grid sm:grid-cols-2 gap-3 text-sm text-gray-600 mb-8">
+              <p><i class="fas fa-user-tie text-[#d4af37] mr-2"></i><strong class="text-[#4a0404]">Guests of Honour:</strong> Dr. Tulasi Ramachandra (Nrithyalaya Trust, Mysuru) &amp; Prof. G. Hemanth Kumar (Former Vice Chancellor, Mysuru University)</p>
+              <p><i class="fas fa-location-dot text-[#d4af37] mr-2"></i><strong class="text-[#4a0404]">Venue:</strong> Jaganmohan Palace (Sri Jayachamarajendra Art Gallery &amp; Auditorium), Mysuru</p>
+            </div>
+            <div class="flex flex-wrap gap-3">
+              <a href="images/rangapravesha/harshini-iyer/invitation-1.jpg" target="_blank" rel="noopener" class="btn-outline px-6 py-3 rounded-full text-[10px]"><i class="fas fa-envelope-open-text mr-2"></i>View Invitation</a>
+              <a href="images/rangapravesha/harshini-iyer/brochure.jpg" target="_blank" rel="noopener" class="btn-outline px-6 py-3 rounded-full text-[10px]"><i class="fas fa-book-open mr-2"></i>View Brochure</a>
             </div>
           </div>
         </div>
-      -->
+      </div>
 
-      <div class="space-y-8" id="rangapravesha-list">
-        <div class="info-card p-10 md:p-14 text-center" data-aos="fade-up">
-          <div class="icon-badge mx-auto mb-6"><i class="fas fa-calendar-check"></i></div>
-          <h3 class="text-lg font-bold text-[#4a0404] mb-2 royal-font">No entries yet</h3>
-          <p class="text-gray-500 text-sm leading-relaxed max-w-md mx-auto">
-            Names, dates, chief guests, venues and invitations of our disciples' Rangapravesha milestones will appear here as they're shared with us.
-          </p>
+      <!-- 2025 -->
+      <div class="rp-panel" data-year="2025">
+        <div class="info-card p-8 md:p-10 mb-8" data-aos="fade-up">
+          <h3 class="text-2xl font-bold text-[#4a0404] mb-1 royal-font">Dr. Poornima K &middot; Dr. Prarthana Y Gowda &middot; Kum. Vandana Y Gowda</h3>
+          <p class="text-[#d4af37] text-xs font-bold uppercase tracking-widest mb-6">Sunday, 30 November 2025 &middot; 4:30 PM</p>
+          <div class="grid sm:grid-cols-2 gap-3 text-sm text-gray-600 mb-8">
+            <p><i class="fas fa-user-tie text-[#d4af37] mr-2"></i><strong class="text-[#4a0404]">Guest of Honour:</strong> Natyacharya K. Ramamurthy Rao, Director, Noopura Kalavidaru Cultural Trust, Mysuru</p>
+            <p><i class="fas fa-location-dot text-[#d4af37] mr-2"></i><strong class="text-[#4a0404]">Venue:</strong> JCAC &ndash; Jagannatha Center for Art &amp; Culture, Vijayanagar, Mysuru</p>
+          </div>
+          <div class="flex flex-wrap gap-3">
+            <a href="images/rangapravesha/2025-joint/invitation-1.jpg" target="_blank" rel="noopener" class="btn-outline px-6 py-3 rounded-full text-[10px]"><i class="fas fa-envelope-open-text mr-2"></i>View Invitation</a>
+          </div>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="info-card overflow-hidden" data-aos="fade-up">
+            <img src="images/rangapravesha/poornima-k/portrait.jpg" alt="Dr. Poornima K" loading="lazy" class="w-full h-60 object-cover">
+            <div class="p-6">
+              <h4 class="text-lg font-bold text-[#4a0404] mb-4 royal-font">Dr. Poornima K</h4>
+              <a href="images/rangapravesha/poornima-k/brochure.jpg" target="_blank" rel="noopener" class="btn-outline px-5 py-2.5 rounded-full text-[10px] inline-block"><i class="fas fa-book-open mr-2"></i>View Brochure</a>
+            </div>
+          </div>
+          <div class="info-card overflow-hidden" data-aos="fade-up" data-aos-delay="150">
+            <img src="images/rangapravesha/prarthana-y-gowda/portrait.jpg" alt="Dr. Prarthana Y Gowda" loading="lazy" class="w-full h-60 object-cover">
+            <div class="p-6">
+              <h4 class="text-lg font-bold text-[#4a0404] mb-4 royal-font">Dr. Prarthana Y Gowda</h4>
+              <a href="images/rangapravesha/prarthana-y-gowda/brochure.jpg" target="_blank" rel="noopener" class="btn-outline px-5 py-2.5 rounded-full text-[10px] inline-block"><i class="fas fa-book-open mr-2"></i>View Brochure</a>
+            </div>
+          </div>
+          <div class="info-card overflow-hidden" data-aos="fade-up" data-aos-delay="300">
+            <img src="images/rangapravesha/vandana-y-gowda/portrait.jpg" alt="Kum. Vandana Y Gowda" loading="lazy" class="w-full h-60 object-cover">
+            <div class="p-6">
+              <h4 class="text-lg font-bold text-[#4a0404] mb-4 royal-font">Kum. Vandana Y Gowda</h4>
+              <a href="images/rangapravesha/vandana-y-gowda/brochure.jpg" target="_blank" rel="noopener" class="btn-outline px-5 py-2.5 rounded-full text-[10px] inline-block"><i class="fas fa-book-open mr-2"></i>View Brochure</a>
+            </div>
+          </div>
         </div>
       </div>
+
+      <!-- 2024 -->
+      <div class="rp-panel" data-year="2024">
+        <div class="info-card overflow-hidden md:grid md:grid-cols-[260px_1fr]" data-aos="fade-up">
+          <img src="images/rangapravesha/aisiri-d/portrait.jpg" alt="Kumari Aisiri D" loading="lazy" class="w-full h-64 md:h-full object-cover">
+          <div class="p-8 md:p-10">
+            <h3 class="text-2xl font-bold text-[#4a0404] mb-1 royal-font">Kumari Aisiri D</h3>
+            <p class="text-[#d4af37] text-xs font-bold uppercase tracking-widest mb-6">Tuesday, 24 December 2024 &middot; 5:30 PM</p>
+            <div class="grid sm:grid-cols-2 gap-3 text-sm text-gray-600 mb-8">
+              <p><i class="fas fa-user-tie text-[#d4af37] mr-2"></i><strong class="text-[#4a0404]">Chief Guest:</strong> Sri G.T. Devegowda, MLA, Chamundeshwari Constituency, Mysuru</p>
+              <p><i class="fas fa-location-dot text-[#d4af37] mr-2"></i><strong class="text-[#4a0404]">Venue:</strong> Ramagovinda Rangamandira, Ramakrishnanagar, Mysuru</p>
+            </div>
+            <div class="flex flex-wrap gap-3">
+              <a href="images/rangapravesha/aisiri-d/invitation-1.jpg" target="_blank" rel="noopener" class="btn-outline px-6 py-3 rounded-full text-[10px]"><i class="fas fa-envelope-open-text mr-2"></i>View Invitation</a>
+              <a href="images/rangapravesha/aisiri-d/brochure.jpg" target="_blank" rel="noopener" class="btn-outline px-6 py-3 rounded-full text-[10px]"><i class="fas fa-book-open mr-2"></i>View Brochure</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--
+        HOW TO ADD A FUTURE YEAR / ENTRY:
+        1. Add a new button to #rp-year-tabs: <button type="button" class="rp-tab" data-year="YYYY">YYYY</button>
+        2. Add a new <div class="rp-panel" data-year="YYYY"> ... </div> block following the patterns above.
+        3. Drop invitation/brochure/portrait images under images/rangapravesha/<name-slug>/
+        4. The JS below auto-activates the most recent year tab (highest data-year) on load.
+      -->
     </div>
   </section>
 
@@ -646,7 +732,22 @@
       if (e.key === 'Escape') closeLightbox();
     });
 
-    window.onload = () => { AOS.init({ once: true, duration: 900 }); runSlideshow(); };
+    // Rangapravesha year tabs
+    function initRangapravesha() {
+      const tabs = document.querySelectorAll('.rp-tab');
+      const panels = document.querySelectorAll('.rp-panel');
+      if (!tabs.length) return;
+      function activate(year) {
+        tabs.forEach(t => t.classList.toggle('rp-active', t.dataset.year === year));
+        panels.forEach(p => p.classList.toggle('rp-active', p.dataset.year === year));
+      }
+      tabs.forEach(t => t.addEventListener('click', () => activate(t.dataset.year)));
+      // Default to the most recent year available
+      const years = Array.from(tabs).map(t => t.dataset.year).sort().reverse();
+      activate(years[0]);
+    }
+
+    window.onload = () => { AOS.init({ once: true, duration: 900 }); runSlideshow(); initRangapravesha(); };
   </script>
 </body>
 </html>
