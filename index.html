@@ -534,27 +534,60 @@
       <!-- MEDIA FEATURES / PRESS COVERAGE -->
       <div class="text-center mb-8" data-aos="fade-down">
         <span class="kicker">Media Feature</span>
-        <h3 class="text-2xl md:text-3xl font-bold text-[#4a0404] uppercase tracking-tight royal-font mb-4">In The Press</h3>
-        <p class="text-gray-500 max-w-xl mx-auto font-light text-sm">Select an article below to open it.</p>
+        <h3 class="text-2xl md:text-3xl font-bold text-[#4a0404] uppercase tracking-tight royal-font mb-6">In The Press</h3>
       </div>
 
-      <div class="max-w-xl mx-auto" data-aos="fade-up">
-        <div class="relative">
-          <select id="pressSelect" onchange="if(this.value){window.open(this.value,'_blank');} this.selectedIndex=0;" class="w-full appearance-none cursor-pointer bg-white border-2 border-[#d4af37]/60 rounded-full pl-6 pr-12 py-4 text-sm text-[#4a0404] font-semibold focus:outline-none focus:border-[#4a0404] shadow-sm hover:shadow-md transition-shadow">
-            <option value="" selected disabled>View Press Coverage (11 articles)</option>
-            <option value="images/press/aisiri-2023-kannadaprabha.jpg">Kannada Prabha &middot; Dec 21, 2023 — Rangapravesha of Kum. Aisiri D announced</option>
-            <option value="images/press/aisiri-2023-star-of-mysore.jpg">Star of Mysore &middot; Dec 23, 2023 — "Rangavidhipraveshika of D. Aisiri tomorrow"</option>
-            <option value="images/press/samaagama-2024.jpg">Star of Mysore &middot; Sep 4, 2024 — "Nruthyathi Kalaashaale presents Samaagama-2024"</option>
-            <option value="images/press/kalemane-utsava-2024.jpg">Kannada Prabha &middot; Sep 28, 2024 — Guru Anusha Varun at the 44th Nirantara Kalemane Utsava</option>
-            <option value="images/press/samaagama-2025-preview.jpg">Star of Mysore &middot; Aug 25, 2025 — "Samaagama 2025: Bharatanatyam Festival in city on Aug. 30, 31"</option>
-            <option value="images/press/samaagama-2025-report.jpg">Star of Mysore — "Samaagama 2025: A grand celebration of dance and devotion in city"</option>
-            <option value="images/press/trio-rangapravesha-2025-preview.jpg">Star of Mysore &middot; Nov 27, 2025 — Mother-daughters trio: Poornima, Prarthana &amp; Vandana</option>
-            <option value="images/press/trio-rangapravesha-2025-report.jpg">Star of Mysore — "A historic evening of Bharatanatyam"</option>
-            <option value="images/press/harshini-2026-preview.jpg">Star of Mysore &middot; Jan 19, 2026 — "Harshini to present Bharatanatyam Rangavidhipraveshika on Jan. 25"</option>
-            <option value="images/press/harshini-2026-report.jpg">Star of Mysore &middot; Feb 4, 2026 — "Bharatanatyam Rangavidhipraveshika enthrals audience"</option>
-            <option value="images/press/nithyashree-2026-preview.jpg">Star of Mysore &middot; Jul 19, 2026 — "Bharatanatyam Rangavidhipraveshika" featuring Nithyashree</option>
-          </select>
-          <i class="fas fa-chevron-down text-[#4a0404] text-sm pointer-events-none absolute right-6 top-1/2 -translate-y-1/2"></i>
+      <div class="max-w-xl mx-auto relative" data-aos="fade-up" id="pressDropdownWrap">
+        <button type="button" onclick="togglePressDropdown()" id="pressDropdownBtn" class="btn-outline w-full px-8 py-3 rounded-full text-[10px] flex items-center justify-center gap-2">
+          <span>View Press Coverage (11)</span>
+          <i class="fas fa-chevron-down text-[10px]" id="pressDropdownIcon"></i>
+        </button>
+
+        <div id="pressDropdownList" class="hidden absolute left-0 right-0 mt-3 bg-white border border-[#d4af37]/40 rounded-2xl shadow-xl overflow-hidden z-20 max-h-[22rem] overflow-y-auto text-left">
+          <a href="images/press/aisiri-2023-kannadaprabha.jpg" target="_blank" rel="noopener" class="flex flex-col px-6 py-4 border-b border-gray-100 hover:bg-[#faf6ea] transition-colors">
+            <span class="badge-pill bg-[#f3e6c0] text-[#8a6d1f] self-start mb-1">Kannada Prabha &middot; Dec 21, 2023</span>
+            <span class="text-sm font-bold text-[#4a0404] royal-font leading-snug">Rangapravesha of Kum. Aisiri D announced</span>
+          </a>
+          <a href="images/press/aisiri-2023-star-of-mysore.jpg" target="_blank" rel="noopener" class="flex flex-col px-6 py-4 border-b border-gray-100 hover:bg-[#faf6ea] transition-colors">
+            <span class="badge-pill bg-[#f3e6c0] text-[#8a6d1f] self-start mb-1">Star of Mysore &middot; Dec 23, 2023</span>
+            <span class="text-sm font-bold text-[#4a0404] royal-font leading-snug">"Rangavidhipraveshika of D. Aisiri tomorrow"</span>
+          </a>
+          <a href="images/press/samaagama-2024.jpg" target="_blank" rel="noopener" class="flex flex-col px-6 py-4 border-b border-gray-100 hover:bg-[#faf6ea] transition-colors">
+            <span class="badge-pill bg-[#f3e6c0] text-[#8a6d1f] self-start mb-1">Star of Mysore &middot; Sep 4, 2024</span>
+            <span class="text-sm font-bold text-[#4a0404] royal-font leading-snug">"Nruthyathi Kalaashaale presents Samaagama-2024"</span>
+          </a>
+          <a href="images/press/kalemane-utsava-2024.jpg" target="_blank" rel="noopener" class="flex flex-col px-6 py-4 border-b border-gray-100 hover:bg-[#faf6ea] transition-colors">
+            <span class="badge-pill bg-[#f3e6c0] text-[#8a6d1f] self-start mb-1">Kannada Prabha &middot; Sep 28, 2024</span>
+            <span class="text-sm font-bold text-[#4a0404] royal-font leading-snug">Guru Anusha Varun featured at the 44th Nirantara Kalemane Utsava</span>
+          </a>
+          <a href="images/press/samaagama-2025-preview.jpg" target="_blank" rel="noopener" class="flex flex-col px-6 py-4 border-b border-gray-100 hover:bg-[#faf6ea] transition-colors">
+            <span class="badge-pill bg-[#f3e6c0] text-[#8a6d1f] self-start mb-1">Star of Mysore &middot; Aug 25, 2025</span>
+            <span class="text-sm font-bold text-[#4a0404] royal-font leading-snug">"Samaagama 2025: Bharatanatyam Festival in city on Aug. 30, 31"</span>
+          </a>
+          <a href="images/press/samaagama-2025-report.jpg" target="_blank" rel="noopener" class="flex flex-col px-6 py-4 border-b border-gray-100 hover:bg-[#faf6ea] transition-colors">
+            <span class="badge-pill bg-[#f3e6c0] text-[#8a6d1f] self-start mb-1">Star of Mysore</span>
+            <span class="text-sm font-bold text-[#4a0404] royal-font leading-snug">"Samaagama 2025: A grand celebration of dance and devotion in city"</span>
+          </a>
+          <a href="images/press/trio-rangapravesha-2025-preview.jpg" target="_blank" rel="noopener" class="flex flex-col px-6 py-4 border-b border-gray-100 hover:bg-[#faf6ea] transition-colors">
+            <span class="badge-pill bg-[#f3e6c0] text-[#8a6d1f] self-start mb-1">Star of Mysore &middot; Nov 27, 2025</span>
+            <span class="text-sm font-bold text-[#4a0404] royal-font leading-snug">"Mother-daughters trio performance" — Poornima, Prarthana &amp; Vandana</span>
+          </a>
+          <a href="images/press/trio-rangapravesha-2025-report.jpg" target="_blank" rel="noopener" class="flex flex-col px-6 py-4 border-b border-gray-100 hover:bg-[#faf6ea] transition-colors">
+            <span class="badge-pill bg-[#f3e6c0] text-[#8a6d1f] self-start mb-1">Star of Mysore</span>
+            <span class="text-sm font-bold text-[#4a0404] royal-font leading-snug">"A historic evening of Bharatanatyam"</span>
+          </a>
+          <a href="images/press/harshini-2026-preview.jpg" target="_blank" rel="noopener" class="flex flex-col px-6 py-4 border-b border-gray-100 hover:bg-[#faf6ea] transition-colors">
+            <span class="badge-pill bg-[#f3e6c0] text-[#8a6d1f] self-start mb-1">Star of Mysore &middot; Jan 19, 2026</span>
+            <span class="text-sm font-bold text-[#4a0404] royal-font leading-snug">"Harshini to present Bharatanatyam Rangavidhipraveshika on Jan. 25"</span>
+          </a>
+          <a href="images/press/harshini-2026-report.jpg" target="_blank" rel="noopener" class="flex flex-col px-6 py-4 border-b border-gray-100 hover:bg-[#faf6ea] transition-colors">
+            <span class="badge-pill bg-[#f3e6c0] text-[#8a6d1f] self-start mb-1">Star of Mysore &middot; Feb 4, 2026</span>
+            <span class="text-sm font-bold text-[#4a0404] royal-font leading-snug">"Bharatanatyam Rangavidhipraveshika enthrals audience"</span>
+          </a>
+          <a href="images/press/nithyashree-2026-preview.jpg" target="_blank" rel="noopener" class="flex flex-col px-6 py-4 hover:bg-[#faf6ea] transition-colors">
+            <span class="badge-pill bg-[#f3e6c0] text-[#8a6d1f] self-start mb-1">Star of Mysore &middot; Jul 19, 2026</span>
+            <span class="text-sm font-bold text-[#4a0404] royal-font leading-snug">"Bharatanatyam Rangavidhipraveshika" — featuring Nithyashree</span>
+          </a>
         </div>
       </div>
     </div>
@@ -754,6 +787,25 @@
     }
 
     // Press coverage dropdown
+    function togglePressDropdown() {
+      const list = document.getElementById('pressDropdownList');
+      const icon = document.getElementById('pressDropdownIcon');
+      const isHidden = list.classList.contains('hidden');
+      list.classList.toggle('hidden', !isHidden);
+      icon.classList.toggle('fa-chevron-down', !isHidden);
+      icon.classList.toggle('fa-chevron-up', isHidden);
+    }
+    document.addEventListener('click', (e) => {
+      const wrap = document.getElementById('pressDropdownWrap');
+      const list = document.getElementById('pressDropdownList');
+      const icon = document.getElementById('pressDropdownIcon');
+      if (wrap && list && !wrap.contains(e.target) && !list.classList.contains('hidden')) {
+        list.classList.add('hidden');
+        icon.classList.remove('fa-chevron-up');
+        icon.classList.add('fa-chevron-down');
+      }
+    });
+
     window.onload = () => { AOS.init({ once: true, duration: 900 }); runSlideshow(); initRangapravesha(); };
   </script>
 </body>
