@@ -532,14 +532,18 @@
       </div>
 
       <!-- MEDIA FEATURES / PRESS COVERAGE -->
-      <div class="text-center mb-10 md:mb-14" data-aos="fade-down">
+      <div class="text-center mb-6" data-aos="fade-down">
         <span class="kicker">Media Feature</span>
-        <h3 class="text-2xl md:text-3xl font-bold text-[#4a0404] uppercase tracking-tight royal-font">In The Press</h3>
+        <h3 class="text-2xl md:text-3xl font-bold text-[#4a0404] uppercase tracking-tight royal-font mb-6">In The Press</h3>
+        <button type="button" onclick="togglePress()" id="pressToggleBtn" class="btn-outline px-8 py-3 rounded-full text-[10px] inline-flex items-center gap-2 mx-auto">
+          <span id="pressToggleLabel">View Press Coverage (11)</span>
+          <i class="fas fa-chevron-down text-[10px]" id="pressToggleIcon"></i>
+        </button>
       </div>
 
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-10" id="pressGrid" style="display:none">
         <!-- Aisiri D - 2023 -->
-        <a href="images/press/aisiri-2023-kannadaprabha.jpg" target="_blank" rel="noopener" class="info-card overflow-hidden block group" data-aos="fade-up">
+        <a href="images/press/aisiri-2023-kannadaprabha.jpg" target="_blank" rel="noopener" class="info-card overflow-hidden block group">
           <div class="h-52 bg-gray-50 flex items-center justify-center overflow-hidden">
             <img src="images/press/aisiri-2023-kannadaprabha.jpg" alt="Kannada Prabha clipping announcing Aisiri D's Rangapravesha" loading="lazy" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
           </div>
@@ -550,7 +554,7 @@
           </div>
         </a>
 
-        <a href="images/press/aisiri-2023-star-of-mysore.jpg" target="_blank" rel="noopener" class="info-card overflow-hidden block group" data-aos="fade-up" data-aos-delay="100">
+        <a href="images/press/aisiri-2023-star-of-mysore.jpg" target="_blank" rel="noopener" class="info-card overflow-hidden block group">
           <div class="h-52 bg-gray-50 flex items-center justify-center overflow-hidden">
             <img src="images/press/aisiri-2023-star-of-mysore.jpg" alt="Star of Mysore article: Rangavidhipraveshika of D. Aisiri tomorrow" loading="lazy" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
           </div>
@@ -562,7 +566,7 @@
         </a>
 
         <!-- Samaagama 2024 -->
-        <a href="images/press/samaagama-2024.jpg" target="_blank" rel="noopener" class="info-card overflow-hidden block group" data-aos="fade-up" data-aos-delay="200">
+        <a href="images/press/samaagama-2024.jpg" target="_blank" rel="noopener" class="info-card overflow-hidden block group">
           <div class="h-52 bg-gray-50 flex items-center justify-center overflow-hidden">
             <img src="images/press/samaagama-2024.jpg" alt="Star of Mysore article on Samaagama 2024" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
           </div>
@@ -574,7 +578,7 @@
         </a>
 
         <!-- Kalemane Utsava 2024 -->
-        <a href="images/press/kalemane-utsava-2024.jpg" target="_blank" rel="noopener" class="info-card overflow-hidden block group" data-aos="fade-up" data-aos-delay="300">
+        <a href="images/press/kalemane-utsava-2024.jpg" target="_blank" rel="noopener" class="info-card overflow-hidden block group">
           <div class="h-52 bg-gray-50 flex items-center justify-center overflow-hidden">
             <img src="images/press/kalemane-utsava-2024.jpg" alt="Kannada Prabha clipping featuring Guru Anusha Varun at the 44th Nirantara Kalemane Utsava" loading="lazy" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
           </div>
@@ -586,7 +590,7 @@
         </a>
 
         <!-- Samaagama 2025 -->
-        <a href="images/press/samaagama-2025-preview.jpg" target="_blank" rel="noopener" class="info-card overflow-hidden block group" data-aos="fade-up" data-aos-delay="400">
+        <a href="images/press/samaagama-2025-preview.jpg" target="_blank" rel="noopener" class="info-card overflow-hidden block group">
           <div class="h-52 bg-gray-50 flex items-center justify-center overflow-hidden">
             <img src="images/press/samaagama-2025-preview.jpg" alt="Star of Mysore article announcing Samaagama 2025" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
           </div>
@@ -597,7 +601,7 @@
           </div>
         </a>
 
-        <a href="images/press/samaagama-2025-report.jpg" target="_blank" rel="noopener" class="info-card overflow-hidden block group" data-aos="fade-up" data-aos-delay="500">
+        <a href="images/press/samaagama-2025-report.jpg" target="_blank" rel="noopener" class="info-card overflow-hidden block group">
           <div class="h-52 bg-gray-50 flex items-center justify-center overflow-hidden">
             <img src="images/press/samaagama-2025-report.jpg" alt="Star of Mysore report on Samaagama 2025" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
           </div>
@@ -609,7 +613,7 @@
         </a>
 
         <!-- Trio Rangapravesha 2025 -->
-        <a href="images/press/trio-rangapravesha-2025-preview.jpg" target="_blank" rel="noopener" class="info-card overflow-hidden block group" data-aos="fade-up">
+        <a href="images/press/trio-rangapravesha-2025-preview.jpg" target="_blank" rel="noopener" class="info-card overflow-hidden block group">
           <div class="h-52 bg-gray-50 flex items-center justify-center overflow-hidden">
             <img src="images/press/trio-rangapravesha-2025-preview.jpg" alt="Star of Mysore article announcing the mother-daughters trio Rangapravesha" loading="lazy" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
           </div>
@@ -620,7 +624,7 @@
           </div>
         </a>
 
-        <a href="images/press/trio-rangapravesha-2025-report.jpg" target="_blank" rel="noopener" class="info-card overflow-hidden block group" data-aos="fade-up" data-aos-delay="100">
+        <a href="images/press/trio-rangapravesha-2025-report.jpg" target="_blank" rel="noopener" class="info-card overflow-hidden block group">
           <div class="h-52 bg-gray-50 flex items-center justify-center overflow-hidden">
             <img src="images/press/trio-rangapravesha-2025-report.jpg" alt="Star of Mysore report: A historic evening of Bharatanatyam" loading="lazy" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
           </div>
@@ -632,7 +636,7 @@
         </a>
 
         <!-- Harshini Iyer 2026 -->
-        <a href="images/press/harshini-2026-preview.jpg" target="_blank" rel="noopener" class="info-card overflow-hidden block group" data-aos="fade-up" data-aos-delay="200">
+        <a href="images/press/harshini-2026-preview.jpg" target="_blank" rel="noopener" class="info-card overflow-hidden block group">
           <div class="h-52 bg-gray-50 flex items-center justify-center overflow-hidden">
             <img src="images/press/harshini-2026-preview.jpg" alt="Star of Mysore article announcing Harshini Iyer's Rangavidhipraveshika" loading="lazy" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
           </div>
@@ -643,7 +647,7 @@
           </div>
         </a>
 
-        <a href="images/press/harshini-2026-report.jpg" target="_blank" rel="noopener" class="info-card overflow-hidden block group" data-aos="fade-up" data-aos-delay="300">
+        <a href="images/press/harshini-2026-report.jpg" target="_blank" rel="noopener" class="info-card overflow-hidden block group">
           <div class="h-52 bg-gray-50 flex items-center justify-center overflow-hidden">
             <img src="images/press/harshini-2026-report.jpg" alt="Star of Mysore report: Bharatanatyam Rangavidhipraveshika enthrals audience" loading="lazy" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
           </div>
@@ -655,7 +659,7 @@
         </a>
 
         <!-- Nithyashree 2026 -->
-        <a href="images/press/nithyashree-2026-preview.jpg" target="_blank" rel="noopener" class="info-card overflow-hidden block group" data-aos="fade-up" data-aos-delay="400">
+        <a href="images/press/nithyashree-2026-preview.jpg" target="_blank" rel="noopener" class="info-card overflow-hidden block group">
           <div class="h-52 bg-gray-50 flex items-center justify-center overflow-hidden">
             <img src="images/press/nithyashree-2026-preview.jpg" alt="Star of Mysore article announcing Nithyashree's Rangavidhipraveshika" loading="lazy" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
           </div>
@@ -860,6 +864,21 @@
       // Default to the most recent year available
       const years = Array.from(tabs).map(t => t.dataset.year).sort().reverse();
       activate(years[0]);
+    }
+
+    // Press coverage dropdown
+    function togglePress() {
+      const grid = document.getElementById('pressGrid');
+      const icon = document.getElementById('pressToggleIcon');
+      const label = document.getElementById('pressToggleLabel');
+      const isHidden = grid.style.display === 'none';
+      grid.style.display = isHidden ? 'grid' : 'none';
+      icon.classList.toggle('fa-chevron-down', !isHidden);
+      icon.classList.toggle('fa-chevron-up', isHidden);
+      label.textContent = isHidden ? 'Hide Press Coverage' : 'View Press Coverage (11)';
+      if (isHidden) {
+        setTimeout(() => document.getElementById('pressToggleBtn').scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
+      }
     }
 
     window.onload = () => { AOS.init({ once: true, duration: 900 }); runSlideshow(); initRangapravesha(); };
